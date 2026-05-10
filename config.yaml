@@ -1,0 +1,79 @@
+#path of your raw pdf,docsdata
+# data_directory: "./data/laracourses/googlellmnotes"
+# config.yaml - server version
+data_directory: "./data/jihad"
+# data_directory: "D:/AI/AI Content/AI learning from scratch"
+
+index_name: "ai-roadmap-notes"
+embedding_model_name: "sentence-transformers/all-MiniLM-L6-v2"
+
+huggingface:
+  cache_dir: "/app/.cache/huggingface"   # ← Linux path, not Windows
+  model_id: "sentence-transformers/all-MiniLM-L6-v2"
+
+use_summary_contextual_rag: False
+use_keyword_in_meta_data: True
+use_lexic_retrieval: False
+re_process_data: False
+
+my_profile_name: "Jihad"
+chuncking_profile: False
+use_query_contextuale: False
+
+vectorstore:
+  provider: "faiss"
+  dimension: 384
+  metric: "cosine"
+  index_name: "ai-roadmap-notes"
+  faiss:
+    persist_path: "vector_store"
+
+llm:
+  provider: "groq"        # server: cloud only, no ollama
+
+  groq:
+    model: "llama-3.3-70b-versatile"
+    temperature: 0.1
+
+  openai:
+    model: "gpt-4o-mini"
+    temperature: 0.1
+
+  ollama:
+    # Active ollama model: "coder" | "architect"
+    active_model: "coder"
+    base_url: "http://localhost:11434"
+
+    models:
+      coder:
+        model_name: "qwen2.5-coder:3b"
+        temperature: 0.3
+        options:
+          num_thread: 6
+          num_ctx: 4096
+          num_batch: 512
+          repeat_penalty: 1.1
+          use_mmap: true
+          use_mlock: true
+
+      architect:
+        model_name: "qwen3.5:4b-q4_K_M"
+        think: false          # disables 3-min thinking delay in Qwen 3.5
+        temperature: 0.1
+        options:
+          num_thread: 6
+          num_ctx: 4096
+          num_batch: 512
+          top_p: 0.9
+          repeat_penalty: 1.1
+          use_mmap: true
+          use_mlock: true
+
+  llama_server:
+    base_url: "http://127.0.0.1:8080/v1"
+    model: "Qwen3-4B"        # label only, ignored by llama-server
+    temperature: 0.1     
+
+
+
+

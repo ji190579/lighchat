@@ -1,0 +1,31 @@
+# Environment
+.env
+env/
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Logs
+logs/
+*.log
+chat_logs/
+
+# Jupyter
+.ipynb_checkpoints/
+notebooks/
+
+# HuggingFace cache
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vector store — synced via GitHub Action (sync-vectorstore.yml)
+vector_store/

@@ -1,0 +1,68 @@
+# Virtual Environment
+env/
+venv/
+
+# Local Data & Training Scripts
+data/
+train_local.py
+documents_util.py
+documents_util_oldl.py
+temp-images/
+temp_images/
+clone_env/
+
+# Logs and Cache
+logs/
+chat_logs/
+__pycache__/
+*.pyc
+
+# Git
+.git/
+.github/
+
+# Heavy Media & Video Processing Files
+*.mp4
+*.wav
+*.avi
+gfpgan/
+GFPGAN/
+sadtalker/
+SadTalker/
+temp/
+videogenerator/
+ai_models/
+voice_samples/
+Voice_cloned/
+output_data/
+generated_video/
+Wav2Lip/
+
+# Heavy Model Weights
+*.pth
+*.bin
+
+# Local UI, Frontend & Secrets
+.env
+.gradio/
+node_modules/
+secrets/
+
+# Experimental Scripts & Avatars
+chatwithmydatastreamlit.py
+client_tts.py
+ttswrapper.py
+streaming_tts_pseudocode*
+voice_utils.py
+generatevideo.py
+server.py
+jihad_avatar*
+jihad_new*
+myfastavatar*
+myfirstavatar*
+my_speech*
+output_audio*
+myavatar/
+
+# Runtime Volumes (Mounted via docker-compose, do not bake into image!)
+vector_store/

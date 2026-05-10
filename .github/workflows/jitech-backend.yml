@@ -1,0 +1,69 @@
+name: Deploy Backend to AWS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.aws_githup_key }}
+          script: |
+            TARGET_DIR="/home/ubuntu/lighchat"
+            mkdir -p $TARGET_DIR
+            cd $TARGET_DIR
+
+            # ── PROTECT: Backup vector_store before git reset ──────────────
+            # git reset --hard will delete untracked files including vector_store
+            # We backup first and restore after to preserve the FAISS index
+            if [ -d "vector_store" ]; then
+              echo "📦 Backing up vector_store..."
+              cp -r vector_store /tmp/vector_store_backup
+            fi
+
+            # ── SYNC: Pull latest code from GitHub ─────────────────────────
+            if [ ! -d ".git" ]; then
+              echo "🆕 Fresh clone..."
+              git clone https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git .
+            else
+              echo "🔄 Updating existing code..."
+              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
+              git fetch origin
+              git reset --hard origin/main
+            fi
+
+            # ── PROTECT: Restore vector_store after git reset ──────────────
+            # Sync Vector Store workflow handles updates to the index
+            # Deploy workflow must never delete it
+            if [ -d "/tmp/vector_store_backup" ]; then
+              echo "♻️ Restoring vector_store..."
+              cp -r /tmp/vector_store_backup vector_store
+              rm -rf /tmp/vector_store_backup
+              echo "✅ vector_store restored successfully"
+            fi
+
+            # ── SECRETS: Recreate .env from GitHub secrets ─────────────────
+            # .env is in .gitignore — never in repo — injected at deploy time
+            echo "🔐 Writing .env..."
+            echo "GROK_API_KEY=${{ secrets.GROK_API_KEY }}" > .env
+            echo "PINECONE_API_KEY=${{ secrets.PINECONE_API_KEY }}" >> .env
+            echo "ALLOWED_ORIGINS=https://jitechonline.com,https://www.jitechonline.com" >> .env
+
+            echo "🚀 Current version: $(git rev-parse --short HEAD)"
+
+            # ── DEPLOY: Rebuild and restart backend container ───────────────
+            docker stop jitech-backend || true
+            docker rm jitech-backend || true
+            docker image prune -f
+            docker compose up -d --build backend
+
+            echo "✅ Backend deployed successfully"
