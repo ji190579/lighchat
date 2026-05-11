@@ -67,3 +67,5 @@ jobs:
             docker compose up -d --build backend
 
             echo "✅ Backend deployed successfully"
+            echo "GROK_API_KEY=${{ secrets.GROK_API_KEY }}" > .env
+            echo "PINECONE_API_KEY=${{ secrets.PINECONE_API_KEY }}" >> .env
