@@ -28,4 +28,4 @@ notebooks/
 Thumbs.db
 
 # Vector store — synced via GitHub Action (sync-vectorstore.yml)
-vector_store/env
+vector_store
