@@ -17,7 +17,7 @@ use_lexic_retrieval: False
 re_process_data: False
 
 my_profile_name: "Jihad"
-chuncking_profile: False
+chuncking_profile: True
 use_query_contextuale: False
 
 vectorstore:
