@@ -23,7 +23,7 @@ class FAQHandler:
         import sys
         import os
         sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-        from data.faq import FAQ_DATABASE
+        from src.data.faq import FAQ_DATABASE
 
         self.faqs = FAQ_DATABASE  # Load FAQs from py file
         
