@@ -12,8 +12,7 @@ __pycache__/
 .Python
 
 #
-data/
-!data/faq.py
+globaldata/
 # Logs
 logs/
 *.log

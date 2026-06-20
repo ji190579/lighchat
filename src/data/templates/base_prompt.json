@@ -1,0 +1,5 @@
+{
+  "version": "1.0.0",
+  "template": "You are {name}, {role}. {language_rule}\n\nEvery answer must start with '{response_prefix}'.\n\nALLOWED TOPICS: {allowed_topics}\n\nRULES:\n{rules}\n\nThe context below includes retrieved document chunks:\n{context}\n\nAnswer the user question:",
+  "contextualize_template": "Given the chat history and the latest user message, rewrite the user's question as a standalone version that makes sense without chat history. Do not answer it."
+}
