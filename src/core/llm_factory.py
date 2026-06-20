@@ -13,7 +13,7 @@ from src.core.config import load_config
 
 def build_llm(config: dict = None, config_path: str = "config.yaml"):
     """
-    Factory that reads config.yaml and returns the appropriate LangChain LLM.
+      Factory that reads config.yaml and returns the appropriate LangChain LLM.
 
     Usage:
         llm = build_llm()                          # uses config.yaml defaults
