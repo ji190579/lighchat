@@ -138,6 +138,19 @@ def retrieve_docs_safe(retriever, query: str) -> list:
         return retriever.invoke({"query": query})
 
 
+def _serialize_chat_history(chat_history):
+    serialized = []
+    for msg in chat_history or []:
+        role = getattr(msg, "role", None) or getattr(msg, "type", None)
+        if not role:
+            role = msg.__class__.__name__.lower()
+        serialized.append({
+            "role": role,
+            "content": getattr(msg, "content", str(msg))
+        })
+    return serialized
+
+
 # ═══════════════════════════════════════════════════════════════
 # MAIN CHAT FUNCTION
 # ═══════════════════════════════════════════════════════════════
@@ -179,6 +192,7 @@ def chat_with_model(
             HumanMessage(content=new_message),
             AIMessage(content=result)
         ])
+        _log_debug(tenant_id, new_message, [], result, chat_history)
         return history, ""
 
     # ── FAQ check ──────────────────────────────────────────────
@@ -197,6 +211,7 @@ def chat_with_model(
             AIMessage(content=bot_reply)
         ])
         history.append((new_message, bot_reply))
+        _log_debug(tenant_id, new_message, [], bot_reply, chat_history)
         _log_faq_usage(tenant_id, new_message, matched_q, confidence, bot_reply)
         return history, ""
 
@@ -232,7 +247,7 @@ def chat_with_model(
             HumanMessage(content=new_message),
             AIMessage(content=no_context_reply)
         ])
-        _log_debug(tenant_id, new_message, [], no_context_reply)
+        _log_debug(tenant_id, new_message, [], no_context_reply, chat_history)
         return history, ""
 
     result = question_answer_chain.invoke({
@@ -253,7 +268,7 @@ def chat_with_model(
         print(f"STRICT_RAG: Hallucination detected. Using no_context_reply instead.")
 
     # Debug log
-    _log_debug(tenant_id, new_message, retrieved_docs, bot_reply)
+    _log_debug(tenant_id, new_message, retrieved_docs, bot_reply, chat_history)
 
     chat_history.extend([
         HumanMessage(content=new_message),
@@ -363,14 +378,14 @@ def chat_with_model_stream(
         AIMessage(content=full_response)
     ])
     history.append((new_message, full_response))
-    _log_debug(tenant_id, new_message, retrieved_docs, full_response)
+    _log_debug(tenant_id, new_message, retrieved_docs, full_response, chat_history)
 
 
 # ═══════════════════════════════════════════════════════════════
 # LOGGING
 # ═══════════════════════════════════════════════════════════════
 
-def _log_debug(tenant_id: str, question: str, docs: list, answer: str):
+def _log_debug(tenant_id: str, question: str, docs: list, answer: str, chat_history=None):
     """Log RAG debug trace per tenant."""
     tenant_log_dir = f"logs/{tenant_id}"
     os.makedirs(tenant_log_dir, exist_ok=True)
@@ -420,15 +435,23 @@ def _log_debug(tenant_id: str, question: str, docs: list, answer: str):
             input_tokens = None
             output_tokens = None
 
+    system_prompt = None
+    try:
+        system_prompt = build_system_prompt(tenant_id)
+    except Exception as e:
+        print(f"WARNING: Could not build system prompt for logging: {e}")
+
     payload = {
-        "timestamp":   datetime.now().isoformat(),
-        "tenant":      tenant_id,
-        "input":       question,
-        "top_k_docs":  [doc.page_content[:300] for doc in docs],
-        "sources":     [doc.metadata.get("source", "") for doc in docs],
-        "output":      answer,
+        "timestamp":    datetime.now().isoformat(),
+        "tenant":       tenant_id,
+        "input":        question,
+        "top_k_docs":   [doc.page_content[:300] for doc in docs],
+        "sources":      [doc.metadata.get("source", "") for doc in docs],
+        "output":       answer,
+        "chat_history": _serialize_chat_history(chat_history),
+        "system_prompt": system_prompt,
         "llm_provider": provider,
-        "llm_model": model_name,
+        "llm_model":    model_name,
         "input_tokens": input_tokens,
         "output_tokens": output_tokens,
     }

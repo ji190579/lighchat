@@ -1,4 +1,5 @@
 # faq_handler.py
+import re
 from sentence_transformers import SentenceTransformer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
@@ -33,6 +34,42 @@ class FAQHandler:
         self.faq_embeddings = self.model.encode(self.faq_questions)
         print(f"✅ {len(self.faqs)} FAQ embeddings ready")
     
+    LANGUAGE_KEYWORDS = {
+        "javascript": ["javascript", "java script", "js"],
+        "java": ["java"],
+        "python": ["python"],
+        "c#": ["c#", "csharp"],
+        "c++": ["c++", "cpp"],
+        "typescript": ["typescript", "type script"],
+        "ruby": ["ruby"],
+        "php": ["php"],
+        "go": ["go", "golang"],
+        "swift": ["swift"],
+        "kotlin": ["kotlin"],
+        "scala": ["scala"],
+        "perl": ["perl"]
+    }
+
+    def _normalize_text(self, text):
+        return re.sub(r"\s+", " ", str(text).strip().lower())
+
+    def _extract_language_terms(self, text):
+        normalized = self._normalize_text(text)
+        languages = set()
+        for lang, keywords in self.LANGUAGE_KEYWORDS.items():
+            for keyword in keywords:
+                if re.search(rf"\b{re.escape(keyword)}\b", normalized):
+                    languages.add(lang)
+                    break
+        return languages
+
+    def _has_language_mismatch(self, user_question, candidate_question):
+        user_langs = self._extract_language_terms(user_question)
+        candidate_langs = self._extract_language_terms(candidate_question)
+        if user_langs and candidate_langs and user_langs != candidate_langs:
+            return True
+        return False
+
     def find_answer(self, user_question, threshold=0.65):
         """
         Find best matching FAQ
@@ -48,40 +85,53 @@ class FAQHandler:
             user_embedding = self.model.encode([user_question])
             similarities = cosine_similarity(user_embedding, self.faq_embeddings)[0]
             
-            # Get top 3 matches
-            top_3_indices = similarities.argsort()[-3:][::-1]
+            matches = []
+            for i, score in enumerate(similarities):
+                matches.append({
+                    "index": i,
+                    "question": self.faq_questions[i],
+                    "score": float(score),
+                    "mismatch": self._has_language_mismatch(user_question, self.faq_questions[i])
+                })
+
+            matches.sort(key=lambda x: x["score"], reverse=True)
             top_3_matches = [
                 {
-                    "question": self.faq_questions[i],
-                    "score": float(similarities[i])
+                    "question": m["question"],
+                    "score": m["score"]
                 }
-                for i in top_3_indices
+                for m in matches[:3]
             ]
-            
-            best_idx = similarities.argmax()
-            best_score = float(similarities[best_idx])
-            
+
+            best_match = matches[0]
+            best_idx = best_match["index"]
+            best_score = best_match["score"]
+
             # Log query
             self._log_query(user_question, top_3_matches, threshold)
-            
-            if best_score >= threshold:
-                print(f"✅ FAQ HIT: '{self.faq_questions[best_idx]}' ({best_score:.2%})")
+
+            if best_score >= threshold and not best_match["mismatch"]:
+                print(f"✅ FAQ HIT: '{best_match['question']}' ({best_score:.2%})")
                 return {
                     "answer": self.faqs[best_idx]["answer"],
                     "score": best_score,
-                    "matched_question": self.faq_questions[best_idx],
+                    "matched_question": best_match["question"],
                     "source": "FAQ",
                     "top_3": top_3_matches
                 }
+
+            if best_match["mismatch"]:
+                print(f"❌ Rejected FAQ match due to language mismatch: '{best_match['question']}' ({best_score:.2%})")
             else:
-                print(f"❌ No FAQ match. Best: '{self.faq_questions[best_idx]}' ({best_score:.2%})")
-                return {
-                    "answer": None,
-                    "score": best_score,
-                    "matched_question": self.faq_questions[best_idx],
-                    "source": "NO_MATCH",
-                    "top_3": top_3_matches
-                }
+                print(f"❌ No FAQ match. Best: '{best_match['question']}' ({best_score:.2%})")
+
+            return {
+                "answer": None,
+                "score": best_score,
+                "matched_question": best_match["question"],
+                "source": "NO_MATCH",
+                "top_3": top_3_matches
+            }
         
         except Exception as e:
             print(f"❌ Error in find_answer: {e}")
