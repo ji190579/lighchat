@@ -1,0 +1,34 @@
+{
+  "tenant_id": "azentio",
+  "version": "1.0.0",
+  "active": true,
+  "behavior": "technical_support",
+  "vector_store": {
+    "provider": "faiss",
+    "index_name": "azentio-docs",
+    "persist_path": "tenants/azentio/vector_store",
+    "dimension": 384,
+    "metric": "cosine"
+  },
+  "llm": {
+    "provider": "groq",
+    "model": "llama3-8b-8192",
+    "temperature": 0.0
+  },
+  "retrieval": {
+    "k": 7,
+    "search_type": "similarity",
+    "use_hybrid": true,
+    "semantic_weight": 0.6,
+    "keyword_weight": 0.4
+  },
+  "ui": {
+    "title": "Azentio Support",
+    "subtitle": "Technical Documentation Assistant",
+    "avatar": "🏦",
+    "theme_color": "#0d47a1",
+    "position": "bottom-right"
+  },
+  "plan": "pro",
+  "image_processing": "smart"
+}

@@ -1,83 +1,135 @@
+"""
+chat_service.py
+───────────────
+Tenant-aware RAG chat service.
+Builds chains per tenant using prompt_builder + retriever.
+"""
+
 import os
 import json
-import time
-import subprocess
 from datetime import datetime
+from functools import lru_cache
+
 from dotenv import load_dotenv
-from src.services.retriever import setup_retriever
-from src.core.config import load_config
 from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
-from langchain_classic.chains.history_aware_retriever import create_history_aware_retriever
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
-from langchain_classic.memory import ConversationBufferMemory
-from langchain_community.chat_message_histories import FileChatMessageHistory
-from langsmith import traceable
-from langchain_community.callbacks.manager import get_openai_callback
 from langchain_core.messages import HumanMessage, AIMessage
-from src.utils.chat_utils import compress_chat_history, is_greeting_or_compliment, random_greeting_response, check_faq
+
+from src.services.retriever import setup_retriever
 from src.core.llm_factory import build_llm
+from src.core.prompt_builder import build_system_prompt
+from src.core.tenant_manager import get_full_tenant_config
+from src.utils.chat_utils import (
+    compress_chat_history,
+    is_greeting_or_compliment,
+    is_noise_or_greeting_message,
+    random_greeting_response,
+    check_faq,
+)
 
 load_dotenv()
-config = load_config()
-chuncking_profile = config["chuncking_profile"]
+os.makedirs("chat_logs", exist_ok=True)
+os.makedirs("logs", exist_ok=True)
 
-retriever = setup_retriever()
 
-use_query_contextuale = False
-used_context = False
+# ═══════════════════════════════════════════════════════════════
+# STRICT RAG VALIDATOR — Detect hallucinations
+# ═══════════════════════════════════════════════════════════════
 
-if chuncking_profile:
-    prompt_file = "src/data/prompts/AIprompts_profile.json"
-else:
-    prompt_file = "src/data/prompts/AIprompts.json"
+def _is_likely_hallucination(response: str, retrieved_docs: list, behavior: str) -> bool:
+    """
+    For strict_rag behavior, check if response seems to be hallucinated.
+    
+    Returns True if:
+      - No documents were retrieved AND
+      - Response doesn't indicate lack of knowledge
+    """
+    if behavior != "strict_rag":
+        return False
+    
+    if not retrieved_docs:
+        # Response should explicitly say "don't have notes" or similar
+        don_t_have_phrases = [
+            "don't have",
+            "no information",
+            "no specific notes",
+            "not available",
+            "cannot find",
+            "i don't have"
+        ]
+        response_lower = response.lower()
+        has_no_knowledge_phrase = any(phrase in response_lower for phrase in don_t_have_phrases)
+        
+        if not has_no_knowledge_phrase:
+            print(f"⚠️  STRICT_RAG: Response appears to be hallucinated (no docs, no 'don't have' phrase)")
+            return True
+    
+    return False
 
-with open(prompt_file, "r", encoding="utf-8") as file:
-    data = json.load(file)
-    contextualize_system_prompt = data["contextualize_system_prompt"]
-    system_prompt = data["system_prompt"]
 
-llm = build_llm()
+# ═══════════════════════════════════════════════════════════════
+# CHAIN BUILDER — cached per tenant
+# ═══════════════════════════════════════════════════════════════
 
-if use_query_contextuale:
-    contextualize_prompt = ChatPromptTemplate.from_messages([
-        ("system", contextualize_system_prompt),
+@lru_cache(maxsize=20)
+def _build_tenant_chain(tenant_id: str):
+    """
+    Build and cache the RAG chain for a tenant.
+    Called once per tenant — subsequent calls return cached chain.
+    """
+    print(f"Building chain for tenant: {tenant_id}")
+
+    # Load full merged config
+    config = get_full_tenant_config(tenant_id)
+
+    # Build LLM from tenant config
+    from src.core.config import load_config
+    global_config = load_config()
+    llm = build_llm(config=global_config)
+
+    # Build retriever for this tenant
+    retriever = setup_retriever(tenant_id, config)
+
+    # Build system prompt from tenant persona + behavior
+    system_prompt = build_system_prompt(tenant_id)
+
+    # Build prompt template
+    my_prompt = ChatPromptTemplate.from_messages([
+        ("system", system_prompt),
         MessagesPlaceholder("chat_history"),
         ("human", "{input}")
     ])
-    history_aware_retriever = create_history_aware_retriever(
-        llm, retriever, contextualize_prompt
+
+    # Document prompt — clean source names
+    document_prompt = ChatPromptTemplate.from_template(
+        "Source: {source}\n"
+        "Content:\n{page_content}\n"
+        "-----"
     )
 
-my_prompt = ChatPromptTemplate.from_messages([
-    ("system", system_prompt),
-    MessagesPlaceholder("chat_history"),
-    ("human", "{input}")
-])
+    # Build QA chain
+    question_answer_chain = create_stuff_documents_chain(
+        llm,
+        my_prompt,
+        document_prompt=document_prompt
+    )
 
-document_prompt = ChatPromptTemplate.from_template(
-    "Source: {source}\n"
-    "Chunk: {chunk_index}\n"
-    "Content:\n{page_content}\n"
-    "-----"
-)
-
-question_answer_chain = create_stuff_documents_chain(
-    llm,
-    my_prompt,
-    document_prompt=document_prompt
-)
-
-os.makedirs("chat_logs", exist_ok=True)
-chat_memory = FileChatMessageHistory("chat_logs/session1.json")
-memory = ConversationBufferMemory(
-    memory_key="chat_history",
-    return_messages=True,
-    chat_memory=chat_memory
-)
+    print(f"Chain ready for tenant: {tenant_id}")
+    return question_answer_chain, retriever, config
 
 
-def retrieve_docs_safe(retriever, query: str):
-    """Universal retriever call working for any LangChain version."""
+def invalidate_tenant_chain(tenant_id: str):
+    """Clear cached chain for a tenant — call after config changes."""
+    _build_tenant_chain.cache_clear()
+    print(f"Chain cache cleared for: {tenant_id}")
+
+
+# ═══════════════════════════════════════════════════════════════
+# RETRIEVAL HELPER
+# ═══════════════════════════════════════════════════════════════
+
+def retrieve_docs_safe(retriever, query: str) -> list:
+    """Universal retriever call — handles any LangChain version."""
     try:
         return retriever.invoke(query)
     except AttributeError:
@@ -86,11 +138,42 @@ def retrieve_docs_safe(retriever, query: str):
         return retriever.invoke({"query": query})
 
 
-def chat_with_model(history, retriever, new_message, chat_history):
+# ═══════════════════════════════════════════════════════════════
+# MAIN CHAT FUNCTION
+# ═══════════════════════════════════════════════════════════════
+
+def chat_with_model(
+    tenant_id: str,
+    history: list,
+    new_message: str,
+    chat_history: list
+) -> tuple[list, str]:
+    """
+    Main RAG chat function.
+
+    Args:
+        tenant_id:    e.g. "jihad", "azentio"
+        history:      list of (user, bot) tuples for UI display
+        new_message:  current user message
+        chat_history: list of HumanMessage/AIMessage for LLM context
+
+    Returns:
+        (updated_history, cleared_input)
+    """
+    question_answer_chain, retriever, config = _build_tenant_chain(tenant_id)
     trimmed_history = compress_chat_history(chat_history, max_turns=5, max_length=300)
 
-    if is_greeting_or_compliment(new_message):
-        result = random_greeting_response()
+    print(f"\n{'='*60}")
+    print(f"Incoming message: '{new_message}' | tenant: {tenant_id}")
+    print(f"{'='*60}")
+
+    # ── Noise or greeting-like filter ──────────────────────────
+    if is_noise_or_greeting_message(new_message):
+        persona = config.get("persona", {})
+        result = random_greeting_response(
+            profile_name=persona.get("name", tenant_id)
+        )
+        print("DEBUG: noisy or greeting-like message routed to greeting")
         history.append((new_message, result))
         chat_history.extend([
             HumanMessage(content=new_message),
@@ -98,111 +181,133 @@ def chat_with_model(history, retriever, new_message, chat_history):
         ])
         return history, ""
 
-    print(f"\n{'='*60}")
-    print(f"🔍 Checking FAQ for: '{new_message}'")
-    print(f"{'='*60}")
-
-    faq_result = None
+    # ── FAQ check ──────────────────────────────────────────────
+    print("DEBUG: running FAQ check")
+    faq_result = check_faq(new_message, threshold=0.65)
 
     if faq_result:
-        bot_reply = faq_result["answer"]
+        bot_reply  = faq_result["answer"]
         confidence = faq_result["score"]
-        matched_q = faq_result["matched_question"]
+        matched_q  = faq_result["matched_question"]
 
-        print(f"✅ FAQ HIT!")
-        print(f"   User asked: '{new_message}'")
-        print(f"   Matched: '{matched_q}'")
-        print(f"   Confidence: {confidence:.2%}")
-        print(f"   Answer: {bot_reply[:150]}...")
+        print(f"FAQ HIT! Matched: '{matched_q}' | Score: {confidence:.2%}")
 
         chat_history.extend([
             HumanMessage(content=new_message),
             AIMessage(content=bot_reply)
         ])
         history.append((new_message, bot_reply))
-
-        log_faq_usage(new_message, matched_q, confidence, bot_reply)
-
+        _log_faq_usage(tenant_id, new_message, matched_q, confidence, bot_reply)
         return history, ""
-    else:
-        confidence = faq_result["score"] if faq_result else 0.0
-        print(f"❌ No FAQ match (best score: {confidence:.2%})")
-        print(f"   Routing to RAG/LLM system...")
-        modified_query = new_message
 
-        if use_query_contextuale:
-            print("Using context-aware query reformulation...")
-            retrieved_docs = history_aware_retriever.invoke({
-                "input": new_message,
-                "chat_history": trimmed_history
-            })
-            used_context = True
-        else:
-            retrieved_docs = retrieve_docs_safe(retriever, modified_query)
-
-        with get_openai_callback() as cb:
-            result = question_answer_chain.invoke({
-                "input": new_message,
-                "chat_history": trimmed_history,
-                "context": retrieved_docs
-            })
-
-            token_usage = {
-                "total_tokens": cb.total_tokens,
-                "prompt_tokens": cb.prompt_tokens,
-                "completion_tokens": cb.completion_tokens
-            }
-
-        payload_debug = {
-            "input": new_message,
-            "contextualized_query": modified_query,
-            "used_contextualized": "True",
-            "chat_history": [msg.content for msg in trimmed_history],
-            "top_k_docs": [doc.page_content[:300] for doc in retrieved_docs],
-            "final_llm_output": result,
-            "token_usage": token_usage
-        }
-
-        print("\n📤 Full Debug Trace (LLM Payload):")
-        print(json.dumps(payload_debug, indent=2, ensure_ascii=False))
-
-        os.makedirs("logs", exist_ok=True)
-        with open("logs/debug_trace.txt", "a", encoding="utf-8") as log_file:
-            log_file.write(json.dumps(payload_debug, indent=2, ensure_ascii=False) + "\n\n")
-
-        bot_reply = result
-
+    # ── Greeting check ─────────────────────────────────────────
+    if is_greeting_or_compliment(new_message):
+        persona = config.get("persona", {})
+        result = random_greeting_response(
+            profile_name=persona.get("name", tenant_id)
+        )
+        print("DEBUG: greeting branch selected")
+        history.append((new_message, result))
         chat_history.extend([
             HumanMessage(content=new_message),
-            AIMessage(content=bot_reply)
+            AIMessage(content=result)
         ])
-        history.append((new_message, bot_reply))
-
         return history, ""
 
+    # ── RAG retrieval + LLM ────────────────────────────────────
+    print("DEBUG: no FAQ match, routing to RAG/LLM...")
 
-def log_faq_usage(user_question, matched_question, confidence, answer):
-    """Log FAQ hits for analytics"""
-    log_entry = {
-        "timestamp": datetime.now().isoformat(),
-        "user_question": user_question,
-        "matched_faq": matched_question,
-        "confidence": confidence,
-        "answer_preview": answer[:200],
-        "source": "FAQ"
-    }
+    retrieved_docs = retrieve_docs_safe(retriever, new_message)
 
-    os.makedirs("logs", exist_ok=True)
-    with open("logs/faq_usage.jsonl", "a", encoding="utf-8") as f:
-        f.write(json.dumps(log_entry, ensure_ascii=False) + "\n")
+    # ── STRICT RAG GUARD: If no docs and behavior is strict_rag, don't call LLM ──
+    if not retrieved_docs and config.get("behavior") == "strict_rag":
+        persona = config.get("persona", {})
+        no_context_reply = persona.get(
+            "no_context_reply",
+            "I don't have specific notes on this topic yet."
+        )
+        print(f"STRICT_RAG: No documents retrieved. Using no_context_reply.")
+        history.append((new_message, no_context_reply))
+        chat_history.extend([
+            HumanMessage(content=new_message),
+            AIMessage(content=no_context_reply)
+        ])
+        _log_debug(tenant_id, new_message, [], no_context_reply)
+        return history, ""
+
+    result = question_answer_chain.invoke({
+        "input":        new_message,
+        "chat_history": trimmed_history,
+        "context":      retrieved_docs
+    })
+
+    bot_reply = result
+
+    # ── STRICT RAG VALIDATOR: Catch hallucinations ──────────────
+    if _is_likely_hallucination(bot_reply, retrieved_docs, config.get("behavior")):
+        persona = config.get("persona", {})
+        bot_reply = persona.get(
+            "no_context_reply",
+            "I don't have specific notes on this topic yet."
+        )
+        print(f"STRICT_RAG: Hallucination detected. Using no_context_reply instead.")
+
+    # Debug log
+    _log_debug(tenant_id, new_message, retrieved_docs, bot_reply)
+
+    chat_history.extend([
+        HumanMessage(content=new_message),
+        AIMessage(content=bot_reply)
+    ])
+    history.append((new_message, bot_reply))
+
+    return history, ""
 
 
-def chat_with_model_stream(history, retriever, new_message, chat_history):
-    """Stream tokens for the RAG path, yield full response for greeting/FAQ."""
+# ═══════════════════════════════════════════════════════════════
+# STREAMING CHAT
+# ═══════════════════════════════════════════════════════════════
+
+def chat_with_model_stream(
+    tenant_id: str,
+    history: list,
+    new_message: str,
+    chat_history: list
+):
+    """
+    Streaming version — yields tokens as they arrive.
+    Use for real-time UI streaming responses.
+    """
+    question_answer_chain, retriever, config = _build_tenant_chain(tenant_id)
     trimmed_history = compress_chat_history(chat_history, max_turns=5, max_length=300)
 
+    print(f"Streaming incoming message: '{new_message}' | tenant: {tenant_id}")
+    print("DEBUG: running FAQ check")
+
+    # ── FAQ ────────────────────────────────────────────────────
+    faq_result = check_faq(new_message, threshold=0.65)
+    if faq_result:
+        bot_reply  = faq_result["answer"]
+        confidence = faq_result["score"]
+        matched_q  = faq_result["matched_question"]
+
+        print(f"FAQ HIT! Matched: '{matched_q}' | Score: {confidence:.2%}")
+        chat_history.extend([
+            HumanMessage(content=new_message),
+            AIMessage(content=bot_reply)
+        ])
+        history.append((new_message, bot_reply))
+        _log_faq_usage(tenant_id, new_message, matched_q, confidence, bot_reply)
+        yield bot_reply
+        return
+
+    # ── Greeting ───────────────────────────────────────────────
     if is_greeting_or_compliment(new_message):
-        result = random_greeting_response()
+        persona = config.get("persona", {})
+        result = random_greeting_response(
+            profile_name=persona.get("name", tenant_id)
+        )
+        print("DEBUG: greeting branch selected")
         history.append((new_message, result))
         chat_history.extend([
             HumanMessage(content=new_message),
@@ -211,72 +316,147 @@ def chat_with_model_stream(history, retriever, new_message, chat_history):
         yield result
         return
 
-    print(f"\n{'='*60}")
-    print(f"🔍 Checking FAQ for: '{new_message}'")
-    faq_result = check_faq(new_message, threshold=0.65)
+    # ── RAG streaming ──────────────────────────────────────────
+    print(f"Streaming RAG for tenant: {tenant_id}")
+    retrieved_docs = retrieve_docs_safe(retriever, new_message)
 
-    if faq_result:
-        bot_reply = faq_result["answer"]
-        confidence = faq_result["score"]
-        matched_q = faq_result["matched_question"]
-
-        print(f"✅ FAQ HIT! Matched: '{matched_q}' | Confidence: {confidence:.2%}")
-
+    # ── STRICT RAG GUARD: If no docs and behavior is strict_rag, don't call LLM ──
+    if not retrieved_docs and config.get("behavior") == "strict_rag":
+        persona = config.get("persona", {})
+        no_context_reply = persona.get(
+            "no_context_reply",
+            "I don't have specific notes on this topic yet."
+        )
+        print(f"STRICT_RAG: No documents retrieved. Using no_context_reply.")
+        history.append((new_message, no_context_reply))
         chat_history.extend([
             HumanMessage(content=new_message),
-            AIMessage(content=bot_reply)
+            AIMessage(content=no_context_reply)
         ])
-        history.append((new_message, bot_reply))
-        log_faq_usage(new_message, matched_q, confidence, bot_reply)
-
-        yield bot_reply
+        _log_debug(tenant_id, new_message, [], no_context_reply)
+        yield no_context_reply
         return
 
-    print(f"❌ No FAQ match — routing to RAG/LLM streaming...")
-
-    if use_query_contextuale:
-        retrieved_docs = history_aware_retriever.invoke({
-            "input": new_message,
-            "chat_history": trimmed_history
-        })
-    else:
-        retrieved_docs = retrieve_docs_safe(retriever, new_message)
-
-    full_response = ""
+    full_response  = ""
 
     for chunk in question_answer_chain.stream({
-        "input": new_message,
+        "input":        new_message,
         "chat_history": trimmed_history,
-        "context": retrieved_docs
+        "context":      retrieved_docs
     }):
         token = chunk.content if hasattr(chunk, "content") else str(chunk)
         full_response += token
         yield token
+
+    # ── STRICT RAG VALIDATOR: Check for hallucinations (post-stream) ──
+    if _is_likely_hallucination(full_response, retrieved_docs, config.get("behavior")):
+        persona = config.get("persona", {})
+        fallback_reply = persona.get(
+            "no_context_reply",
+            "I don't have specific notes on this topic yet."
+        )
+        print(f"STRICT_RAG: Hallucination detected in stream. Logging fallback instead.")
+        full_response = fallback_reply
 
     chat_history.extend([
         HumanMessage(content=new_message),
         AIMessage(content=full_response)
     ])
     history.append((new_message, full_response))
+    _log_debug(tenant_id, new_message, retrieved_docs, full_response)
 
-    payload_debug = {
-        "input": new_message,
-        "top_k_docs": [doc.page_content[:300] for doc in retrieved_docs],
-        "final_llm_output": full_response
+
+# ═══════════════════════════════════════════════════════════════
+# LOGGING
+# ═══════════════════════════════════════════════════════════════
+
+def _log_debug(tenant_id: str, question: str, docs: list, answer: str):
+    """Log RAG debug trace per tenant."""
+    tenant_log_dir = f"logs/{tenant_id}"
+    os.makedirs(tenant_log_dir, exist_ok=True)
+    # best-effort: capture LLM provider/model from config
+    try:
+        from src.core.config import load_config
+        cfg = load_config()
+        llm_cfg = cfg.get("llm", {})
+        provider = llm_cfg.get("provider", "")
+        model_name = ""
+        if provider == "groq":
+            model_name = llm_cfg.get("groq", {}).get("model", "")
+        elif provider == "openai":
+            model_name = llm_cfg.get("openai", {}).get("model", "")
+        elif provider == "ollama":
+            active = llm_cfg.get("ollama", {}).get("active_model")
+            model_name = llm_cfg.get("ollama", {}).get("models", {}).get(active, {}).get("model_name", "")
+        elif provider == "llama_server":
+            model_name = llm_cfg.get("llama_server", {}).get("model", "")
+    except Exception:
+        provider = None
+        model_name = None
+
+    # token counting (best-effort): try tiktoken, then HF tokenizer
+    input_text = question or ""
+    output_text = answer or ""
+    input_tokens = None
+    output_tokens = None
+    try:
+        import tiktoken
+        try:
+            enc = tiktoken.encoding_for_model(model_name) if model_name else tiktoken.get_encoding("cl100k_base")
+        except Exception:
+            enc = tiktoken.get_encoding("cl100k_base")
+        input_tokens = len(enc.encode(input_text))
+        output_tokens = len(enc.encode(output_text))
+    except Exception:
+        try:
+            from transformers import AutoTokenizer
+            if model_name:
+                tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
+            else:
+                tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased", use_fast=True)
+            input_tokens = len(tokenizer(input_text).get("input_ids", []))
+            output_tokens = len(tokenizer(output_text).get("input_ids", []))
+        except Exception:
+            input_tokens = None
+            output_tokens = None
+
+    payload = {
+        "timestamp":   datetime.now().isoformat(),
+        "tenant":      tenant_id,
+        "input":       question,
+        "top_k_docs":  [doc.page_content[:300] for doc in docs],
+        "sources":     [doc.metadata.get("source", "") for doc in docs],
+        "output":      answer,
+        "llm_provider": provider,
+        "llm_model": model_name,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
     }
-    os.makedirs("logs", exist_ok=True)
-    with open("logs/debug_trace.txt", "a", encoding="utf-8") as f:
-        f.write(json.dumps(payload_debug, indent=2, ensure_ascii=False) + "\n\n")
+
+    with open(f"{tenant_log_dir}/debug_trace.jsonl", "a", encoding="utf-8") as f:
+        f.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 
-@traceable(name="chat_rag_session_stream")
-def chat_with_model_gradio_stream(history, new_message, chat_history):
-    """Drop-in streaming version of chat_with_model_gradio."""
-    for token in chat_with_model_stream(history, retriever, new_message, chat_history):
-        yield token
+def _log_faq_usage(
+    tenant_id: str,
+    user_question: str,
+    matched_question: str,
+    confidence: float,
+    answer: str
+):
+    """Log FAQ hits for analytics per tenant."""
+    tenant_log_dir = f"logs/{tenant_id}"
+    os.makedirs(tenant_log_dir, exist_ok=True)
 
+    entry = {
+        "timestamp":       datetime.now().isoformat(),
+        "tenant":          tenant_id,
+        "user_question":   user_question,
+        "matched_faq":     matched_question,
+        "confidence":      confidence,
+        "answer_preview":  answer[:200],
+        "source":          "FAQ"
+    }
 
-@traceable(name="chat_rag_session")
-def chat_with_model_gradio(history, new_message, chat_history):
-    new_history, cleared_input = chat_with_model(history, retriever, new_message, chat_history)
-    return new_history, cleared_input, chat_history
+    with open(f"{tenant_log_dir}/faq_usage.jsonl", "a", encoding="utf-8") as f:
+        f.write(json.dumps(entry, ensure_ascii=False) + "\n")

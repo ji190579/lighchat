@@ -1,35 +1,39 @@
-#path of your raw pdf,docsdata
-# data_directory: "./data/laracourses/googlellmnotes"
-# config.yaml - server version
-data_directory: "./data/jihad"
-# data_directory: "D:/AI/AI Content/AI learning from scratch"
+# ─────────────────────────────────────────────────────────────
+# config.yaml — Global shared config
+# Per-tenant overrides live in: tenants/{tenant_id}/config.json
+# ─────────────────────────────────────────────────────────────
 
-index_name: "ai-roadmap-notes"
+# ── Embeddings (shared across all tenants) ────────────────────
 embedding_model_name: "sentence-transformers/all-MiniLM-L6-v2"
 
 huggingface:
-  cache_dir: "/app/.cache/huggingface"   # ← Linux path, not Windows
   model_id: "sentence-transformers/all-MiniLM-L6-v2"
+  cache_dir: "/app/.cache/huggingface"   # Linux (Docker) path
 
+# ── Global flags (can be overridden per tenant in config.json) ─
 use_summary_contextual_rag: False
 use_keyword_in_meta_data: True
 use_lexic_retrieval: False
 re_process_data: False
-
-my_profile_name: "Jihad"
-chuncking_profile: True
+chuncking_profile: False
 use_query_contextuale: False
+my_profile_name: "LightChat Assistant"
 
+# ── Multi-tenant ──────────────────────────────────────────────
+tenants_dir: "tenants"                   # root folder for all tenants
+
+# ── Vector store defaults (overridden per tenant) ─────────────
 vectorstore:
   provider: "faiss"
   dimension: 384
   metric: "cosine"
-  index_name: "ai-roadmap-notes"
   faiss:
-    persist_path: "vector_store"
+    persist_path: "tenants/{tenant_id}/vector_store"   # template — filled at runtime
 
+# ── LLM config ────────────────────────────────────────────────
 llm:
-  provider: "groq"        # server: cloud only, no ollama
+  provider: "groq"        # production: groq (cloud, no GPU needed)
+                          # local dev:  ollama | llama_server
 
   groq:
     model: "llama-3.3-70b-versatile"
@@ -40,8 +44,7 @@ llm:
     temperature: 0.1
 
   ollama:
-    # Active ollama model: "coder" | "architect"
-    active_model: "coder"
+    active_model: "coder"           # switch: "coder" | "architect"
     base_url: "http://localhost:11434"
 
     models:
@@ -58,7 +61,7 @@ llm:
 
       architect:
         model_name: "qwen3.5:4b-q4_K_M"
-        think: false          # disables 3-min thinking delay in Qwen 3.5
+        think: false                # disables thinking delay in Qwen 3.5
         temperature: 0.1
         options:
           num_thread: 6
@@ -71,9 +74,5 @@ llm:
 
   llama_server:
     base_url: "http://127.0.0.1:8080/v1"
-    model: "Qwen3-4B"        # label only, ignored by llama-server
-    temperature: 0.1     
-
-
-
-
+    model: "Qwen3-4B"              # label only — ignored by llama-server
+    temperature: 0.1

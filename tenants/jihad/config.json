@@ -1,0 +1,34 @@
+{
+  "tenant_id": "jihad",
+  "version": "1.0.0",
+  "active": true,
+  "behavior": "strict_rag",
+  "vector_store": {
+    "provider": "faiss",
+    "index_name": "jihad-notes",
+    "persist_path": "tenants/jihad/vector_store",
+    "dimension": 384,
+    "metric": "cosine"
+  },
+  "llm": {
+    "provider": "groq",
+    "model": "llama3-8b-8192",
+    "temperature": 0.1
+  },
+  "retrieval": {
+    "k": 10,
+    "search_type": "similarity",
+    "use_hybrid": true,
+    "semantic_weight": 0.6,
+    "keyword_weight": 0.4
+  },
+  "ui": {
+    "title": "Ask Jihad",
+    "subtitle": "web java development, implementing Banking solutions Expert and AI engineering",
+    "avatar": "👨‍💻",
+    "theme_color": "#1a73e8",
+    "position": "bottom-right"
+  },
+  "plan": "enterprise",
+  "image_processing": "smart"
+}

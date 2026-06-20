@@ -11,6 +11,9 @@ __pycache__/
 *.pyd
 .Python
 
+#
+data/
+!data/faq.py
 # Logs
 logs/
 *.log
@@ -29,3 +32,6 @@ Thumbs.db
 
 # Vector store — synced via GitHub Action (sync-vectorstore.yml)
 vector_store
+# Tenant vector stores
+tenants/*/vector_store/
+tenants/*/data/

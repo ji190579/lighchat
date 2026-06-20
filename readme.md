@@ -95,3 +95,13 @@ podman logs jitech-backend
 | Stop            | `podman-compose down`          |
 | Logs            | `podman-compose logs -f`       |
 | Full reset      | `podman-compose down --rmi all`|
+
+
+
+how to start streamlit and backend at the same time?
+
+as powershell with python:(env) PS D:\AI\AI engineer projects\lighchat> python start_both_any.py  
+as bash: $ ./start_both.sh
+
+how to copy trained data to aws cloud ?
+scp -i "D:\AI\mycareer\AWS\LightsailDefaultKey-eu-west-3.pem" -r "D:\AI\AI engineer projects\chatwithmydata\tenants\azentio\jihad\data\vector_store\ai-roadmap-notes" ubuntu@51.45.26.105:/home/ubuntu/lighchat/vector_store/

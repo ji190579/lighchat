@@ -1,4 +1,6 @@
 
+import re
+
 from langchain_core.messages import HumanMessage, AIMessage
 from src.services.faq_handler import FAQHandler
 from src.core.config import load_config
@@ -10,6 +12,52 @@ faq_handler = FAQHandler()
 
 GREETING_KEYWORDS = ["hi", "hello", "hey", "good morning", "good evening", "thanks", "thank you", "appreciate"]
 PRICE_KEYWORDS = ["how much", "price", "cost", "fees", "charges"]
+
+
+def normalize_text(text):
+    return re.sub(r"\s+", " ", str(text).strip().lower())
+
+
+def is_empty_or_blank(text):
+    return normalize_text(text) == ""
+
+
+def is_numeric_message(text):
+    cleaned = re.sub(r"\s+", "", str(text))
+    return cleaned.isdigit()
+
+
+def is_repetitive_message(text, min_repeat=5, ratio_threshold=0.65):
+    cleaned = re.sub(r"\s+", "", str(text).lower())
+    if len(cleaned) < min_repeat:
+        return False
+    if re.search(r"(.)\1{%d,}" % min_repeat, cleaned):
+        return True
+    most_common = max(cleaned.count(ch) for ch in set(cleaned))
+    return most_common / len(cleaned) >= ratio_threshold
+
+
+def is_repetitive_greeting(text):
+    cleaned = normalize_text(text)
+    if not cleaned:
+        return False
+    if re.search(r"\b(h+e+l+o+|h+i+|h+e+y+)\b", cleaned):
+        return True
+    return False
+
+
+def is_noise_or_greeting_message(text):
+    normalized = normalize_text(text)
+    if not normalized:
+        return True
+    if is_numeric_message(text):
+        return True
+    if is_repetitive_message(text):
+        return True
+    if is_repetitive_greeting(text):
+        return True
+    return False
+
 
 
 def is_greeting_or_compliment(text):
@@ -72,8 +120,9 @@ def check_faq(user_message, threshold=0.65):
         dict with answer, score, matched_question, source
         Returns None if no match
     """
+    print(f"DEBUG: check_faq called with message: {user_message} | threshold: {threshold}")
     result = faq_handler.find_answer(user_message, threshold=threshold)
-
+    print(f"DEBUG result: answer={result['answer']!r}, score={result['score']:.4f}, matched_question={result['matched_question']!r}, source={result['source']}")
     if result["answer"]:
         return {
             "answer": result["answer"],

@@ -22,12 +22,24 @@ jobs:
             mkdir -p $TARGET_DIR
             cd $TARGET_DIR
 
-            # ── PROTECT: Backup vector_store before git reset ──────────────
+            # ── PROTECT: Backup vector stores before git reset ─────────────
             # git reset --hard will delete untracked files including vector_store
-            # We backup first and restore after to preserve the FAISS index
+            # We backup first and restore after to preserve FAISS indexes.
             if [ -d "vector_store" ]; then
-              echo "📦 Backing up vector_store..."
+              echo "📦 Backing up root vector_store..."
               cp -r vector_store /tmp/vector_store_backup
+            fi
+
+            if [ -d "tenants" ]; then
+              tenant_vs_dirs=$(find tenants -maxdepth 2 -type d -name 'vector_store' 2>/dev/null || true)
+              if [ -n "$tenant_vs_dirs" ]; then
+                echo "📦 Backing up tenant vector stores..."
+                mkdir -p /tmp/tenant_vector_store_backup
+                while IFS= read -r dir; do
+                  mkdir -p "/tmp/tenant_vector_store_backup/$(dirname "$dir")"
+                  cp -r "$dir" "/tmp/tenant_vector_store_backup/$dir"
+                done <<< "$tenant_vs_dirs"
+              fi
             fi
 
             # ── SYNC: Pull latest code from GitHub ─────────────────────────
@@ -41,14 +53,20 @@ jobs:
               git reset --hard origin/main
             fi
 
-            # ── PROTECT: Restore vector_store after git reset ──────────────
-            # Sync Vector Store workflow handles updates to the index
-            # Deploy workflow must never delete it
+            # ── PROTECT: Restore vector stores after git reset ─────────────
+            # Sync Vector Store workflow handles index updates; deploy must never delete them.
             if [ -d "/tmp/vector_store_backup" ]; then
-              echo "♻️ Restoring vector_store..."
+              echo "♻️ Restoring root vector_store..."
               cp -r /tmp/vector_store_backup vector_store
               rm -rf /tmp/vector_store_backup
-              echo "✅ vector_store restored successfully"
+              echo "✅ root vector_store restored successfully"
+            fi
+
+            if [ -d "/tmp/tenant_vector_store_backup" ]; then
+              echo "♻️ Restoring tenant vector stores..."
+              cp -r /tmp/tenant_vector_store_backup/tenants ./tenants
+              rm -rf /tmp/tenant_vector_store_backup
+              echo "✅ tenant vector stores restored successfully"
             fi
 
             # ── SECRETS: Recreate .env from GitHub secrets ─────────────────

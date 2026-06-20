@@ -1,0 +1,1316 @@
+faqs = [
+
+    # ============================================================
+    # PERSONAL INFORMATION & EDUCATION
+    # ============================================================
+    {
+        "question": "Where are you from?",
+        "answer": "I'm from Beirut, Lebanon, and I've built my career in banking technology serving regional and international financial institutions."
+    },
+    {
+        "question": "Which university did you attend?",
+        "answer": "I earned my Bachelor's degree in Business Computer from the Lebanese University."
+    },
+    {
+        "question": "What did you study?",
+        "answer": "I studied Business Computer, combining software engineering, databases, and business systems."
+    },
+    {
+        "question": "When did you graduate?",
+        "answer": "I graduated in 2003 with a Bachelor's degree in Business Computer."
+    },
+    {
+        "question": "What languages do you speak?",
+        "answer": "I speak Arabic, French, and English fluently."
+    },
+    {
+        "question": "What is your date of birth?",
+        "answer": "I was born on May 19, 1979."
+    },
+    {
+        "question": "Where are you located?",
+        "answer": "I'm based in Chiah, Beirut, Lebanon."
+    },
+    {
+        "question": "What was your high school background?",
+        "answer": "I completed my Lebanese Baccalaureate in Experimental Science in 1999 at Citadel High School, where I was educated in French."
+    },
+    {
+        "question": "What are your personal interests?",
+        "answer": "Outside of work, I'm passionate about music, sports, and poetry."
+    },
+    {
+        "question": "What personal skills do you consider your strongest?",
+        "answer": "I'm a fast learner and hard worker who takes initiative and brings a proactive mindset to every challenge I face."
+    },
+
+    # ============================================================
+    # CAREER OVERVIEW
+    # ============================================================
+    {
+        "question": "What is your background?",
+        "answer": "I'm a Principal Software Engineer with over 20 years of experience specializing in core banking, trade finance systems, and enterprise modernization."
+    },
+    {
+        "question": "How many years of experience do you have?",
+        "answer": "I have over 20 years of experience in software engineering within the banking sector."
+    },
+    {
+        "question": "What is your current role?",
+        "answer": "I'm currently a Principal Software Engineer at Azentio, leading the trade finance application roadmap and driving microservices transformation initiatives."
+    },
+    {
+        "question": "Which companies have you worked for?",
+        "answer": "I worked at Path Solutions from 2006 to 2021, and currently at Azentio — which is the same company rebranded after an acquisition."
+    },
+    {
+        "question": "Tell me about your career journey.",
+        "answer": "I started with PowerBuilder client-server core banking systems, transitioned to Java web applications using Struts2, Spring, and MyBatis, led trade finance modernization, and now I'm integrating AI solutions and microservices architecture into banking systems."
+    },
+    {
+        "question": "What industries have you worked in?",
+        "answer": "I've spent my entire career in the banking and financial technology sector, specializing in core banking, retail banking, and trade finance."
+    },
+    {
+        "question": "What is your current company?",
+        "answer": "I work at Azentio, formerly known as Path Solutions, based in Mansourieh, Lebanon."
+    },
+    {
+        "question": "When did you join Azentio?",
+        "answer": "I've been with the company since June 2006. It was called Path Solutions and rebranded to Azentio in 2021."
+    },
+    {
+        "question": "What is your title?",
+        "answer": "My current title is Principal Software Engineer."
+    },
+    {
+        "question": "Have you worked in a product owner role?",
+        "answer": "Yes, at Azentio I act as Product Manager/Owner for the trade finance application, leading the strategic roadmap and coordinating between business and development teams."
+    },
+
+    # ============================================================
+    # JAVA & ENTERPRISE EXPERIENCE
+    # ============================================================
+    {
+        "question": "What is your Java experience?",
+        "answer": "I have over 10 years of Java/JEE experience building enterprise banking applications using Spring Boot, Struts2, MyBatis3, and microservices architecture."
+    },
+    {
+        "question": "Do you know Spring Boot?",
+        "answer": "Yes, I use Spring Boot extensively for building RESTful microservices and scalable enterprise banking applications."
+    },
+    {
+        "question": "What frameworks do you use?",
+        "answer": "I work with Spring, Spring Boot, Struts2, and MyBatis3 as my core Java frameworks."
+    },
+    {
+        "question": "Have you built enterprise systems?",
+        "answer": "Yes, I've built and maintained enterprise-scale core banking systems handling high transaction volumes and regulatory compliance across more than 80 clients worldwide."
+    },
+    {
+        "question": "Do you know Struts2?",
+        "answer": "Yes, I've worked extensively with Struts2 as the MVC framework for web trade finance and retail banking applications."
+    },
+    {
+        "question": "What is MyBatis?",
+        "answer": "MyBatis3 is an ORM framework I use for mapping Java objects to SQL queries and stored procedures, allowing precise control over database interactions in banking systems."
+    },
+    {
+        "question": "Do you have experience with Spring MVC?",
+        "answer": "Yes, I've applied MVC 2 patterns with Struts2 and Spring throughout the web banking applications I've built and maintained."
+    },
+    {
+        "question": "Have you done code reviews?",
+        "answer": "Yes, I regularly conduct code reviews, provide training to junior developers, and ensure alignment with architectural standards."
+    },
+    {
+        "question": "Have you worked on production support?",
+        "answer": "Yes, I've been part of the escalation team resolving critical production issues for banking clients."
+    },
+    {
+        "question": "What application servers have you used?",
+        "answer": "I've primarily worked with Apache Tomcat as the application server for deploying Java web applications."
+    },
+
+    # ============================================================
+    # POWERBUILDER & MIGRATION
+    # ============================================================
+    {
+        "question": "Do you have PowerBuilder experience?",
+        "answer": "Yes, I worked over 10 years with PowerBuilder developing core banking desktop client-server systems on Oracle and Sybase environments."
+    },
+    {
+        "question": "Have you migrated legacy systems?",
+        "answer": "Yes, I led and executed large-scale migrations from PowerBuilder to Java web applications for both retail banking and trade finance, preserving all business logic."
+    },
+    {
+        "question": "How do you approach legacy modernization?",
+        "answer": "I analyze embedded business rules in legacy code, extract domain logic, redesign using layered MVC architecture, create business scenarios for validation, and migrate incrementally."
+    },
+    {
+        "question": "What is PowerScript?",
+        "answer": "PowerScript is the proprietary scripting language used in PowerBuilder applications. I used it extensively during the first phase of my career for core banking development."
+    },
+    {
+        "question": "Why did you migrate from PowerBuilder to Java?",
+        "answer": "PowerBuilder was a client-server technology becoming obsolete. Moving to Java web applications allowed us to serve browser-based clients, scale better, and align with modern enterprise architecture."
+    },
+    {
+        "question": "What modules did you migrate?",
+        "answer": "I migrated retail banking modules like Front Office Management and Account Creation, as well as full trade finance modules including Letters of Credit, Guarantees, and Bills for Collection."
+    },
+
+    # ============================================================
+    # TRADE FINANCE DOMAIN
+    # ============================================================
+    {
+        "question": "What trade finance systems have you worked on?",
+        "answer": "I've worked on the full lifecycle of Letters of Credit, Bank Guarantees, and Bills for Collection, including amendments, settlements, and SWIFT message integration."
+    },
+    {
+        "question": "What is a Letter of Credit?",
+        "answer": "A Letter of Credit is a bank guarantee ensuring payment to a seller upon compliant document presentation. I've implemented the full LC lifecycle, including issuance, amendments, settlements, and closure."
+    },
+    {
+        "question": "What is a Bank Guarantee?",
+        "answer": "A Bank Guarantee is a commitment by the bank to pay a beneficiary if the applicant fails to fulfill an obligation. I've developed guarantee issuance, amendment, and cancellation workflows."
+    },
+    {
+        "question": "What are Bills for Collection?",
+        "answer": "Bills for Collection are trade finance instruments where banks act as intermediaries to collect payment from buyers on behalf of sellers. I've implemented both import and export collection workflows."
+    },
+    {
+        "question": "Have you worked with SWIFT?",
+        "answer": "Yes, I've worked with SWIFT MT103 and MT202 payment messages and led the migration project to ISO 20022 MX message formats."
+    },
+    {
+        "question": "What is ISO 20022?",
+        "answer": "ISO 20022 is a modern global financial messaging standard replacing legacy SWIFT MT formats with structured XML-based messages that carry richer data."
+    },
+    {
+        "question": "What does LC lifecycle mean?",
+        "answer": "The LC lifecycle covers all stages a Letter of Credit goes through: issuance, advising, utilization, amendment, settlement, and closure — all of which I've implemented in the iMAL system."
+    },
+    {
+        "question": "What is the iMAL system?",
+        "answer": "iMAL is an Islamic banking and trade finance platform I've worked on throughout my career at Path Solutions and Azentio, supporting Islamic finance products including trade finance instruments."
+    },
+    {
+        "question": "What is Islamic Trade Finance?",
+        "answer": "Islamic Trade Finance applies Sharia-compliant principles to trade finance products, avoiding interest-based mechanisms and using structures like Murabaha, Wakala, and Kafalah."
+    },
+    {
+        "question": "Have you worked with SDLC?",
+        "answer": "Yes, I've been involved in all phases of the Software Development Life Cycle: requirement gathering, design, analysis, coding, testing, and production support."
+    },
+
+    # ============================================================
+    # MICROSERVICES & ARCHITECTURE
+    # ============================================================
+    {
+        "question": "What is your microservices experience?",
+        "answer": "I initiated and am leading the transformation of the trade finance application to microservices using Spring Boot, Eureka, API Gateway, Kafka, Zipkin, Keycloak, and JFrog."
+    },
+    {
+        "question": "Have you used Kafka?",
+        "answer": "Yes, I use Kafka for event-driven communication between banking microservices, ensuring reliable asynchronous message delivery."
+    },
+    {
+        "question": "Do you use API Gateway?",
+        "answer": "Yes, I implement API Gateway as the entry point for microservices, handling routing, authentication, load balancing, and rate limiting."
+    },
+    {
+        "question": "How do you ensure transaction consistency in microservices?",
+        "answer": "I apply Saga patterns, idempotent APIs, and careful rollback strategies to maintain data consistency without relying on traditional distributed transactions."
+    },
+    {
+        "question": "What is Eureka in microservices?",
+        "answer": "Eureka is Netflix's service discovery server. In our microservices architecture, it allows services to register themselves and discover each other dynamically."
+    },
+    {
+        "question": "What is Zipkin?",
+        "answer": "Zipkin is a distributed tracing system I use to monitor and troubleshoot latency issues across microservices in the trade finance platform."
+    },
+    {
+        "question": "What is Keycloak?",
+        "answer": "Keycloak is an open-source identity and access management solution I use to handle authentication and authorization across microservices using OAuth2 and OpenID Connect."
+    },
+    {
+        "question": "What is JFrog?",
+        "answer": "JFrog Artifactory is an artifact repository manager I use for storing and managing build artifacts, Docker images, and dependencies in the microservices pipeline."
+    },
+    {
+        "question": "Have you worked with OAuth2?",
+        "answer": "Yes, I've implemented OAuth2 authentication flows for securing microservices APIs, integrating with Keycloak as the identity provider."
+    },
+    {
+        "question": "Why did you choose microservices over monolithic architecture?",
+        "answer": "Microservices allow independent deployment, better scalability, and clearer team ownership for complex trade finance modules, reducing the risk of large monolithic deployments."
+    },
+
+    # ============================================================
+    # DATABASE EXPERIENCE
+    # ============================================================
+    {
+        "question": "What databases do you know?",
+        "answer": "I have extensive experience with Oracle and Sybase in high-volume banking environments, including PL/SQL stored procedures and performance optimization."
+    },
+    {
+        "question": "Do you know PL/SQL?",
+        "answer": "Yes, I have deep expertise in PL/SQL including stored procedures, packages, triggers, and query performance optimization for banking systems."
+    },
+    {
+        "question": "How do you optimize database performance?",
+        "answer": "I use indexing strategies, query tuning, partitioning, execution plan analysis, and minimizing locking contention to optimize high-volume banking databases."
+    },
+    {
+        "question": "What is Sybase?",
+        "answer": "Sybase is a relational database management system I worked with extensively during the PowerBuilder phase of my career for core banking client-server applications."
+    },
+    {
+        "question": "Have you written stored procedures?",
+        "answer": "Yes, I've written and maintained complex PL/SQL stored procedures and Sybase stored procedures for banking data processing, integration, and reporting."
+    },
+    {
+        "question": "Have you done data integration?",
+        "answer": "Yes, I've developed scripts and PL/SQL programs specifically for data integration tasks during the PowerBuilder to Java migration projects."
+    },
+
+    # ============================================================
+    # DEVOPS & CONTAINERS
+    # ============================================================
+    {
+        "question": "Do you use Docker?",
+        "answer": "Yes, I containerize banking microservices using Docker for consistent deployment across environments."
+    },
+    {
+        "question": "What is Podman?",
+        "answer": "Podman is a daemonless container engine I use as a secure, rootless alternative to Docker in enterprise production environments at Azentio."
+    },
+    {
+        "question": "Do you use version control?",
+        "answer": "Yes, I've used Microsoft Visual SourceSafe, Subversion (SVN), and Git throughout my career for source code management."
+    },
+    {
+        "question": "Do you know Git?",
+        "answer": "Yes, I use Git for version control and have also set up GitHub repositories for my AI projects and personal development work."
+    },
+    {
+        "question": "Have you used CI/CD pipelines?",
+        "answer": "Yes, I've worked with CI/CD workflows as part of the MLOps and production deployment training, and I apply similar automation principles in my microservices work."
+    },
+
+    # ============================================================
+    # AI PROGRAM — PYTHON & ML FOUNDATIONS
+    # ============================================================
+    {
+        "question": "Do you know Python?",
+        "answer": "Yes, I use Python for AI/ML projects, data processing, automation, and building APIs with FastAPI."
+    },
+    {
+        "question": "What Python libraries do you know?",
+        "answer": "I work with NumPy, Pandas, Matplotlib, Scikit-Learn, TensorFlow, PyTorch, FastAPI, LangChain, and FAISS, among others."
+    },
+    {
+        "question": "Do you know NumPy?",
+        "answer": "Yes, I use NumPy for numerical computing and array operations, which form the mathematical foundation of most ML workflows."
+    },
+    {
+        "question": "Do you know Pandas?",
+        "answer": "Yes, I use Pandas for data loading, cleaning, transformation, and exploratory data analysis in ML projects."
+    },
+    {
+        "question": "Do you know Matplotlib?",
+        "answer": "Yes, I use Matplotlib for data visualization, including plotting model performance, distributions, and training curves."
+    },
+    {
+        "question": "Do you know Scikit-Learn?",
+        "answer": "Yes, I've used Scikit-Learn for end-to-end ML workflows including classification, regression, hyperparameter tuning, and model evaluation."
+    },
+    {
+        "question": "What is a virtual environment in Python?",
+        "answer": "A virtual environment isolates Python dependencies per project, preventing version conflicts — a best practice I follow in all my AI projects."
+    },
+    {
+        "question": "Have you used Jupyter Notebooks?",
+        "answer": "Yes, I use Jupyter Notebooks for exploratory data analysis, prototyping ML models, and documenting AI experiments interactively."
+    },
+    {
+        "question": "What is GitHub used for in AI projects?",
+        "answer": "GitHub is used for version controlling code, collaborating on projects, and sharing AI work publicly — I maintain my RAG chatbot project on GitHub."
+    },
+    {
+        "question": "What AI certification have you completed?",
+        "answer": "I completed the AI Engineers Program by Lara Wehbi, covering machine learning, deep learning, generative AI, MLOps, and AWS deployment."
+    },
+
+    # ============================================================
+    # SUPERVISED & UNSUPERVISED LEARNING
+    # ============================================================
+    {
+        "question": "What is supervised learning?",
+        "answer": "Supervised learning trains models on labeled input-output pairs, learning a mapping function that can predict outputs for new inputs."
+    },
+    {
+        "question": "What is unsupervised learning?",
+        "answer": "Unsupervised learning finds hidden patterns in data without labels, commonly used for clustering, dimensionality reduction, and anomaly detection."
+    },
+    {
+        "question": "What is the difference between supervised and unsupervised learning?",
+        "answer": "Supervised learning requires labeled data and learns to predict specific outputs. Unsupervised learning works on unlabeled data and discovers structure on its own."
+    },
+    {
+        "question": "What is a regression algorithm?",
+        "answer": "Regression algorithms predict continuous numerical values — for example, predicting loan default probability or transaction amounts in banking."
+    },
+    {
+        "question": "What is a classification algorithm?",
+        "answer": "Classification algorithms assign inputs to discrete categories — for example, classifying transactions as fraudulent or legitimate."
+    },
+    {
+        "question": "What is the cost function?",
+        "answer": "The cost function measures how wrong the model's predictions are. Minimizing it during training improves model accuracy."
+    },
+    {
+        "question": "What is gradient descent?",
+        "answer": "Gradient descent is the optimization algorithm that iteratively adjusts model parameters in the direction that reduces the cost function, allowing the model to learn."
+    },
+    {
+        "question": "What are the types of gradient descent?",
+        "answer": "The main types are Batch Gradient Descent, Stochastic Gradient Descent (SGD), and Mini-Batch Gradient Descent, each with different tradeoffs in speed and stability."
+    },
+    {
+        "question": "What is K-Means clustering?",
+        "answer": "K-Means is an unsupervised algorithm that partitions data into K clusters by minimizing the distance between data points and their cluster centroid."
+    },
+    {
+        "question": "What is the Elbow Method?",
+        "answer": "The Elbow Method helps choose the optimal number of K clusters by plotting inertia against K and finding the 'elbow' point where adding more clusters yields diminishing returns."
+    },
+    {
+        "question": "What is PCA?",
+        "answer": "Principal Component Analysis reduces data dimensionality by transforming features into fewer orthogonal components that capture the most variance."
+    },
+    {
+        "question": "What is hierarchical clustering?",
+        "answer": "Hierarchical clustering builds a tree of clusters by either merging smaller clusters bottom-up (agglomerative) or splitting top-down (divisive)."
+    },
+    {
+        "question": "What is DBSCAN?",
+        "answer": "DBSCAN is a density-based clustering algorithm that identifies clusters of arbitrary shape and detects outliers as noise points — useful for anomaly detection in financial data."
+    },
+    {
+        "question": "What is a recommender system?",
+        "answer": "A recommender system predicts user preferences and suggests relevant items. I've implemented collaborative filtering-based recommendation systems."
+    },
+    {
+        "question": "What is TF-IDF?",
+        "answer": "TF-IDF (Term Frequency–Inverse Document Frequency) is a text weighting technique I've used for NLP clustering tasks like grouping news articles by topic."
+    },
+    {
+        "question": "What is semi-supervised learning?",
+        "answer": "Semi-supervised learning uses a small amount of labeled data combined with a large amount of unlabeled data, making it practical when labeling is expensive."
+    },
+    {
+        "question": "What is self-supervised learning?",
+        "answer": "Self-supervised learning generates labels from the data itself — the foundation behind how large language models like GPT are pretrained."
+    },
+    {
+        "question": "What is overfitting?",
+        "answer": "Overfitting happens when a model learns the training data too well, including its noise, and performs poorly on new unseen data."
+    },
+    {
+        "question": "What is underfitting?",
+        "answer": "Underfitting happens when a model is too simple to capture the underlying patterns in the data, resulting in poor performance on both training and test data."
+    },
+    {
+        "question": "What is hyperparameter tuning?",
+        "answer": "Hyperparameter tuning is the process of finding the optimal configuration for model parameters that are set before training, such as learning rate, depth of trees, or number of clusters."
+    },
+    {
+        "question": "What is feature engineering?",
+        "answer": "Feature engineering is transforming raw data into informative inputs that improve model performance — such as encoding categorical variables, normalizing values, or creating interaction features."
+    },
+    {
+        "question": "What is anomaly detection?",
+        "answer": "Anomaly detection identifies data points that deviate significantly from expected patterns — highly relevant in banking for detecting fraudulent transactions."
+    },
+
+    # ============================================================
+    # DEEP LEARNING
+    # ============================================================
+    {
+        "question": "What is deep learning?",
+        "answer": "Deep learning uses multi-layer neural networks to learn hierarchical representations from data, enabling capabilities like image recognition, language understanding, and speech synthesis."
+    },
+    {
+        "question": "What is a neural network?",
+        "answer": "A neural network is a system of interconnected layers of neurons that transform input data into predictions through learned weights and activation functions."
+    },
+    {
+        "question": "What is a perceptron?",
+        "answer": "A perceptron is the simplest neural network unit — it takes weighted inputs, applies a bias, and passes the result through an activation function to produce an output."
+    },
+    {
+        "question": "What are activation functions?",
+        "answer": "Activation functions introduce non-linearity into neural networks. Common ones include ReLU, Sigmoid, Tanh, and Softmax, each suited for different tasks."
+    },
+    {
+        "question": "What is TensorFlow?",
+        "answer": "TensorFlow is Google's deep learning framework I've used with Keras to build and train neural networks for classification and computer vision tasks."
+    },
+    {
+        "question": "What is Keras?",
+        "answer": "Keras is a high-level API built on TensorFlow that simplifies building, training, and evaluating neural network models."
+    },
+    {
+        "question": "What is PyTorch?",
+        "answer": "PyTorch is Facebook's deep learning framework I've used for building flexible neural networks, including a medical imaging project classifying chest X-rays."
+    },
+    {
+        "question": "What is a CNN?",
+        "answer": "A Convolutional Neural Network is a deep learning architecture specialized for image data, using convolutional layers to detect spatial features like edges and textures."
+    },
+    {
+        "question": "What is backpropagation?",
+        "answer": "Backpropagation computes gradients of the loss with respect to each weight by working backward through the network, enabling gradient descent to update the weights."
+    },
+    {
+        "question": "What optimizers have you used?",
+        "answer": "I've worked with SGD, Adam, and RMSprop as optimizers in training deep learning models."
+    },
+
+    # ============================================================
+    # COMPUTER VISION
+    # ============================================================
+    {
+        "question": "Do you have computer vision experience?",
+        "answer": "Yes, I've studied computer vision including image representation, filters, edge detection, feature detection, object detection with YOLO, transfer learning, and image segmentation."
+    },
+    {
+        "question": "What is YOLO?",
+        "answer": "YOLO (You Only Look Once) is a real-time object detection algorithm that predicts bounding boxes and class labels in a single forward pass through the network."
+    },
+    {
+        "question": "What is transfer learning?",
+        "answer": "Transfer learning reuses a pretrained model's weights as a starting point for a new task, significantly reducing training time and data requirements."
+    },
+    {
+        "question": "What is fine-tuning in computer vision?",
+        "answer": "Fine-tuning unfreezes some or all layers of a pretrained model and continues training on domain-specific data to adapt the model to a new task."
+    },
+    {
+        "question": "What is edge detection?",
+        "answer": "Edge detection identifies boundaries in images by detecting significant changes in pixel intensity — a foundational step in many computer vision pipelines."
+    },
+    {
+        "question": "What is image segmentation?",
+        "answer": "Image segmentation classifies each pixel in an image into a category, enabling precise understanding of image content beyond bounding box detection."
+    },
+
+    # ============================================================
+    # LLMs & GENERATIVE AI
+    # ============================================================
+    {
+        "question": "What are LLMs?",
+        "answer": "Large Language Models are deep learning models trained on massive text corpora that can understand and generate human language at a high level."
+    },
+    {
+        "question": "What is a Transformer architecture?",
+        "answer": "Transformers are the neural network architecture behind modern LLMs. They use self-attention mechanisms to capture long-range relationships between tokens in a sequence."
+    },
+    {
+        "question": "What is self-attention?",
+        "answer": "Self-attention allows each token in a sequence to weigh the relevance of every other token when computing its representation, enabling context-aware understanding."
+    },
+    {
+        "question": "What is multi-head attention?",
+        "answer": "Multi-head attention runs multiple attention mechanisms in parallel, each attending to different aspects of the input, then combines their outputs for a richer representation."
+    },
+    {
+        "question": "What is causal attention?",
+        "answer": "Causal (masked) attention ensures each token can only attend to previous tokens, not future ones — this is how autoregressive language models like GPT are trained."
+    },
+    {
+        "question": "What is cross-attention?",
+        "answer": "Cross-attention allows a model to attend to a different sequence than its own — used in encoder-decoder architectures like the original Transformer for translation."
+    },
+    {
+        "question": "What is RLHF?",
+        "answer": "Reinforcement Learning from Human Feedback is a training technique used to align LLMs with human preferences by using human rankings to train a reward model."
+    },
+    {
+        "question": "What is a foundation model?",
+        "answer": "A foundation model is a large pretrained model like GPT or Claude that can be adapted to a wide range of downstream tasks through fine-tuning or prompting."
+    },
+    {
+        "question": "What is tokenization?",
+        "answer": "Tokenization splits text into smaller units (tokens) that LLMs process. Methods include character-level, word-level, and subword tokenization like BPE."
+    },
+    {
+        "question": "What are embeddings?",
+        "answer": "Embeddings are dense numerical vector representations of tokens or sentences that capture semantic meaning and relationships in a high-dimensional space."
+    },
+    {
+        "question": "What is the difference between static and contextual embeddings?",
+        "answer": "Static embeddings (like Word2Vec) assign a fixed vector per word. Contextual embeddings (like BERT or GPT) produce different vectors for the same word depending on its context."
+    },
+    {
+        "question": "What is sentence embedding?",
+        "answer": "Sentence embeddings represent entire sentences as single vectors, enabling semantic similarity comparison — a key component in RAG systems and semantic search."
+    },
+    {
+        "question": "What is Hugging Face?",
+        "answer": "Hugging Face is the leading platform for sharing and using pretrained models. I've used it to access transformers, tokenizers, and datasets for AI experiments."
+    },
+    {
+        "question": "What is Ollama?",
+        "answer": "Ollama is a tool for running open-source LLMs locally. I've used it to run models like Qwen and Llama on my development machine for private AI experiments."
+    },
+    {
+        "question": "What is LangChain?",
+        "answer": "LangChain is a framework for building LLM-powered applications. I've used it to build RAG pipelines, chatbots, and multi-agent systems."
+    },
+
+    # ============================================================
+    # RAG & VECTOR DATABASES
+    # ============================================================
+    {
+        "question": "What is RAG?",
+        "answer": "RAG (Retrieval-Augmented Generation) combines a retrieval system with an LLM — it fetches relevant documents from a knowledge base and feeds them as context to the model for grounded, accurate responses."
+    },
+    {
+        "question": "Have you built a RAG system?",
+        "answer": "Yes, I built a RAG-based career chatbot that retrieves relevant information from my professional knowledge base and answers questions using an LLM."
+    },
+    {
+        "question": "What is a vector database?",
+        "answer": "A vector database stores embeddings and enables fast similarity search — I've used FAISS for this in my RAG implementations."
+    },
+    {
+        "question": "What is FAISS?",
+        "answer": "FAISS (Facebook AI Similarity Search) is a library for efficient similarity search over dense vectors. I've used it as the retrieval engine in my RAG chatbot."
+    },
+    {
+        "question": "What is semantic search?",
+        "answer": "Semantic search retrieves results based on meaning rather than exact keywords, using embeddings to match queries with the most conceptually similar documents."
+    },
+    {
+        "question": "When should you use RAG vs fine-tuning?",
+        "answer": "Use RAG when you need the model to access frequently changing or private knowledge. Use fine-tuning when you need to change the model's behavior, tone, or reasoning style."
+    },
+    {
+        "question": "What LLMs have you worked with?",
+        "answer": "I've worked with GPT (OpenAI), Claude (Anthropic), Groq-hosted models, and open-source models like Qwen and Llama through Ollama and local inference."
+    },
+    {
+        "question": "Have you deployed an AI chatbot?",
+        "answer": "Yes, I deployed a RAG-based career chatbot on AWS Lightsail using Docker, FastAPI, LangChain, FAISS, and a React frontend with full CI/CD via GitHub Actions."
+    },
+    {
+        "question": "What is Groq?",
+        "answer": "Groq is an AI inference provider offering extremely fast LLM API responses. I've used it as the LLM backend in my RAG chatbot deployment."
+    },
+    {
+        "question": "What is your GitHub AI project?",
+        "answer": "I maintain a RAG-based notes chatbot on GitHub at https://github.com/ji190579/rag_llm_notes — it answers questions using my own knowledge documents as the retrieval source."
+    },
+
+    # ============================================================
+    # FINE-TUNING & MODEL TRAINING
+    # ============================================================
+    {
+        "question": "What is supervised fine-tuning?",
+        "answer": "Supervised fine-tuning trains a pretrained model on structured input-output pairs to specialize it for a specific domain or task."
+    },
+    {
+        "question": "What is LoRA?",
+        "answer": "LoRA (Low-Rank Adaptation) is a parameter-efficient fine-tuning technique that trains small low-rank matrices injected into the model's attention layers instead of updating all weights."
+    },
+    {
+        "question": "What is prompt engineering?",
+        "answer": "Prompt engineering is designing effective instructions for LLMs to elicit accurate, relevant, and well-formatted responses without changing the model's weights."
+    },
+    {
+        "question": "What is few-shot prompting?",
+        "answer": "Few-shot prompting provides a small number of input-output examples in the prompt to guide the model's response style and format."
+    },
+    {
+        "question": "What is zero-shot prompting?",
+        "answer": "Zero-shot prompting asks the model to perform a task with no examples provided, relying entirely on the model's pretrained knowledge."
+    },
+    {
+        "question": "What is chain-of-thought prompting?",
+        "answer": "Chain-of-thought prompting encourages the model to reason step by step before giving a final answer, improving accuracy on complex problems."
+    },
+    {
+        "question": "What is role-based prompting?",
+        "answer": "Role-based prompting assigns a persona or role to the LLM in the system prompt, guiding its tone, expertise level, and focus."
+    },
+
+    # ============================================================
+    # TOOL CALLING & MULTI-AGENT SYSTEMS
+    # ============================================================
+    {
+        "question": "What is tool calling in LLMs?",
+        "answer": "Tool calling allows an LLM to invoke external functions or APIs — such as searching the web, querying a database, or running code — to extend its capabilities beyond text generation."
+    },
+    {
+        "question": "Have you built multi-agent systems?",
+        "answer": "Yes, I've built multi-agent systems using Claude where specialized agents collaborate — including an orchestrator, code fixer, reviewer, test runner, and SVN commit agents."
+    },
+    {
+        "question": "What is a multi-agent architecture?",
+        "answer": "A multi-agent architecture divides a complex task among multiple specialized AI agents that coordinate through an orchestrator, each handling a specific subtask."
+    },
+    {
+        "question": "What is an LLM orchestrator?",
+        "answer": "An orchestrator agent manages the workflow between specialized agents, routing tasks, aggregating results, and ensuring the overall goal is achieved."
+    },
+    {
+        "question": "What tools have you used for multi-agent AI?",
+        "answer": "I've built multi-agent systems using Claude with custom agent definitions, and also explored LangGraph for stateful multi-agent workflows."
+    },
+
+    # ============================================================
+    # GENERATIVE AI — DIFFUSION MODELS & VISION
+    # ============================================================
+    {
+        "question": "What is a Variational Autoencoder (VAE)?",
+        "answer": "A VAE is a generative model that encodes inputs into a latent probability distribution and decodes samples from that distribution to generate new data."
+    },
+    {
+        "question": "What is a diffusion model?",
+        "answer": "A diffusion model generates data by learning to reverse a gradual noise-adding process — the foundation of modern image generation systems like Stable Diffusion."
+    },
+    {
+        "question": "What is Stable Diffusion?",
+        "answer": "Stable Diffusion is an open-source text-to-image diffusion model. I've worked with it including fine-tuning and running it through the WebUI for custom image generation."
+    },
+    {
+        "question": "What is a GAN?",
+        "answer": "A Generative Adversarial Network consists of a generator and discriminator trained adversarially — the generator creates data while the discriminator tries to distinguish it from real data."
+    },
+    {
+        "question": "What is a Vision Transformer (ViT)?",
+        "answer": "A Vision Transformer applies the Transformer architecture to image patches rather than text tokens, achieving state-of-the-art performance on image classification tasks."
+    },
+    {
+        "question": "Have you worked with image generation?",
+        "answer": "Yes, I've worked with Stable Diffusion for text-to-image generation, fine-tuned models on custom datasets, and also built video pipelines using tools like SadTalker, GFPGAN, and Wav2Lip."
+    },
+    {
+        "question": "What is the latent space?",
+        "answer": "The latent space is the compressed intermediate representation learned by generative models like VAEs and Stable Diffusion, where similar concepts are positioned close together."
+    },
+    {
+        "question": "What is the forward diffusion process?",
+        "answer": "The forward process gradually adds Gaussian noise to an image over many steps until it becomes pure noise — this is what diffusion models learn to reverse."
+    },
+    {
+        "question": "What is the reverse diffusion process?",
+        "answer": "The reverse process is what a trained diffusion model performs: starting from pure noise, it iteratively predicts and removes noise to reconstruct or generate a coherent image."
+    },
+    {
+        "question": "Have you fine-tuned image generation models?",
+        "answer": "Yes, I've studied and practiced fine-tuning Stable Diffusion on custom datasets to generate domain-specific images."
+    },
+
+    # ============================================================
+    # MLOPS & PRODUCTION AI
+    # ============================================================
+    {
+        "question": "What is MLOps?",
+        "answer": "MLOps (Machine Learning Operations) applies DevOps principles to ML systems — covering model versioning, experiment tracking, CI/CD pipelines, and production monitoring."
+    },
+    {
+        "question": "Have you used FastAPI?",
+        "answer": "Yes, I build RESTful APIs with FastAPI for AI services, chatbots, and microservices — I deployed my RAG chatbot backend using FastAPI."
+    },
+    {
+        "question": "Have you worked with PostgreSQL?",
+        "answer": "Yes, I've used PostgreSQL with SQLAlchemy in AI production projects, including setting up database migrations for AI application backends."
+    },
+    {
+        "question": "What is SQLAlchemy?",
+        "answer": "SQLAlchemy is a Python ORM and database toolkit I've used for connecting AI applications to PostgreSQL databases and managing schema migrations."
+    },
+    {
+        "question": "What is experiment tracking in MLOps?",
+        "answer": "Experiment tracking records model training runs — including hyperparameters, metrics, and artifacts — so you can compare experiments and reproduce results."
+    },
+    {
+        "question": "What is model versioning?",
+        "answer": "Model versioning tracks different iterations of a trained model, enabling rollback, comparison, and auditability — critical in regulated banking AI applications."
+    },
+    {
+        "question": "What is a CI/CD pipeline in ML?",
+        "answer": "A CI/CD pipeline for ML automates testing, model training, evaluation, and deployment whenever code or data changes, ensuring consistent and reliable model releases."
+    },
+    {
+        "question": "What is Docker used for in AI?",
+        "answer": "Docker containerizes AI applications and their dependencies, ensuring they run identically across development, staging, and production environments."
+    },
+    {
+        "question": "What is Docker Compose?",
+        "answer": "Docker Compose orchestrates multi-container applications — I've used it to run AI backends, databases, and frontend services together in a single configuration."
+    },
+    {
+        "question": "What is unit testing in AI?",
+        "answer": "Unit testing in AI verifies individual components — such as data preprocessing functions, API endpoints, and model inference code — work correctly in isolation."
+    },
+
+    # ============================================================
+    # AWS & CLOUD
+    # ============================================================
+    {
+        "question": "Have you worked with AWS?",
+        "answer": "Yes, I've worked with AWS services including EC2, S3, RDS, Lambda, SageMaker, and Bedrock as part of my MLOps training and AI project deployments."
+    },
+    {
+        "question": "What is Amazon S3?",
+        "answer": "Amazon S3 is an object storage service I use for storing ML datasets, model artifacts, and application assets in the cloud."
+    },
+    {
+        "question": "What is Amazon EC2?",
+        "answer": "Amazon EC2 provides virtual machine instances in the cloud. I've deployed AI applications and Docker containers on EC2 for production hosting."
+    },
+    {
+        "question": "What is AWS Lambda?",
+        "answer": "AWS Lambda is a serverless compute service that runs code in response to events without managing servers — I've used it for lightweight AI inference and API endpoints."
+    },
+    {
+        "question": "What is Amazon SageMaker?",
+        "answer": "Amazon SageMaker is AWS's managed ML platform for building, training, and deploying models at scale. I've used it for running notebooks and training jobs in the cloud."
+    },
+    {
+        "question": "What is AWS Bedrock?",
+        "answer": "AWS Bedrock provides access to foundation models from multiple providers via API. I've explored it for integrating LLM capabilities into cloud-native AI applications."
+    },
+    {
+        "question": "Have you deployed AI apps on AWS Lightsail?",
+        "answer": "Yes, I deployed my RAG chatbot on AWS Lightsail using Docker containers, nginx with SSL, and GitHub Actions for CI/CD automation."
+    },
+    {
+        "question": "What is IAM in AWS?",
+        "answer": "AWS IAM (Identity and Access Management) controls access permissions for AWS services and resources — essential for securing AI deployments and data pipelines."
+    },
+    {
+        "question": "What is Amazon RDS?",
+        "answer": "Amazon RDS is a managed relational database service I've used to host PostgreSQL databases for AI application backends in the cloud."
+    },
+    {
+        "question": "What is Elastic IP in AWS?",
+        "answer": "Elastic IP is a static public IP address in AWS that I assign to EC2 instances to maintain a consistent endpoint for deployed AI applications."
+    },
+
+    # ============================================================
+    # FRONTEND & REACT
+    # ============================================================
+    {
+        "question": "Do you know React?",
+        "answer": "Yes, I've used React to build the frontend of my RAG chatbot, implementing components, hooks, and state management for a responsive user interface."
+    },
+    {
+        "question": "What frontend technologies do you use?",
+        "answer": "I have experience with HTML, CSS, JavaScript, JSP, and have expanded into React and Tailwind CSS for modern AI application frontends."
+    },
+    {
+        "question": "What is Tailwind CSS?",
+        "answer": "Tailwind CSS is a utility-first CSS framework I use for rapid, consistent UI styling in React-based AI application frontends."
+    },
+
+    # ============================================================
+    # PERSONAL BRANDING & CONTENT CREATION
+    # ============================================================
+    {
+        "question": "Do you create content about AI?",
+        "answer": "Yes, I produce Arabic-language educational content about AI on LinkedIn including posts, carousels, and short-form video content targeting software developers."
+    },
+    {
+        "question": "What is your LinkedIn focus?",
+        "answer": "My LinkedIn profile and content focus on AI education for Arabic-speaking developers, sharing practical insights about machine learning, LLMs, and AI engineering."
+    },
+    {
+        "question": "Do you have a GitHub profile?",
+        "answer": "Yes, my GitHub profile showcases my AI projects including my RAG chatbot and other AI engineering experiments."
+    },
+    {
+        "question": "Why do you create Arabic AI content?",
+        "answer": "Arabic-speaking developers have limited access to high-quality technical AI content in their native language — I aim to bridge that gap and make AI education more accessible in the Arab world."
+    },
+    {
+        "question": "What is a personal brand for developers?",
+        "answer": "A developer's personal brand is how they present their expertise publicly — through GitHub, LinkedIn, content creation, and portfolio projects — to attract opportunities and recognition."
+    },
+    {
+        "question": "How do you structure a strong GitHub profile?",
+        "answer": "A strong GitHub profile includes a clear README, well-documented repositories, consistent commit history, and projects that demonstrate real skills relevant to the domain you're targeting."
+    },
+
+    # ============================================================
+    # SOFT SKILLS & FREELANCING
+    # ============================================================
+    {
+        "question": "Have you done freelance AI work?",
+        "answer": "I've been building the foundation for AI freelancing by developing RAG systems, multi-agent setups, and AI-powered chatbots that can serve enterprise clients."
+    },
+    {
+        "question": "How do you write a project proposal?",
+        "answer": "A strong proposal clearly defines the problem, proposed solution, scope of work, deliverables, timeline, and pricing — demonstrating you understand the client's needs."
+    },
+    {
+        "question": "What is value-based pricing?",
+        "answer": "Value-based pricing sets the project price based on the business value delivered to the client rather than time spent — a more profitable approach for experienced AI consultants."
+    },
+    {
+        "question": "What is an SLA?",
+        "answer": "A Service Level Agreement defines the quality, availability, and responsibilities of a delivered service — I've studied how to draft SLAs that protect both parties in AI consulting contracts."
+    },
+    {
+        "question": "What is an MoU?",
+        "answer": "A Memorandum of Understanding is a preliminary agreement outlining the intentions and responsibilities of both parties before a formal contract is signed."
+    },
+    {
+        "question": "What is Agile methodology?",
+        "answer": "Agile is an iterative project management approach that delivers value in short sprints with continuous feedback — I apply Agile principles in both my software and AI projects."
+    },
+    {
+        "question": "What is Waterfall methodology?",
+        "answer": "Waterfall is a sequential project management approach where each phase must complete before the next begins — suitable for projects with well-defined, stable requirements."
+    },
+    {
+        "question": "How do you handle client expectations?",
+        "answer": "I focus on clear requirements gathering, honest scope definition, regular progress updates, and proactive communication whenever risks or blockers arise."
+    },
+
+    # ============================================================
+    # INTERVIEW PREPARATION
+    # ============================================================
+    {
+        "question": "What is bias vs variance in machine learning?",
+        "answer": "Bias measures how far predictions are from true values on average. Variance measures how much predictions vary across different training datasets. The bias-variance tradeoff is central to model selection."
+    },
+    {
+        "question": "What model evaluation metrics do you use?",
+        "answer": "For classification I use accuracy, precision, recall, F1-score, and AUC-ROC. For regression I use MAE, MSE, and RMSE depending on the problem context."
+    },
+    {
+        "question": "What is the AUC-ROC curve?",
+        "answer": "AUC-ROC measures a classifier's ability to distinguish between classes across all classification thresholds — a value of 1.0 is perfect, 0.5 is random."
+    },
+    {
+        "question": "What is the difference between precision and recall?",
+        "answer": "Precision measures how many predicted positives are actually positive. Recall measures how many actual positives were correctly identified. Balancing them depends on the cost of false positives vs false negatives."
+    },
+    {
+        "question": "What is the F1-score?",
+        "answer": "The F1-score is the harmonic mean of precision and recall, providing a single metric that balances both — especially useful for imbalanced class datasets."
+    },
+    {
+        "question": "What is a confusion matrix?",
+        "answer": "A confusion matrix is a table showing the counts of true positives, true negatives, false positives, and false negatives for a classification model's predictions."
+    },
+    {
+        "question": "How do you evaluate an LLM?",
+        "answer": "LLM evaluation includes metrics like perplexity, BLEU, ROUGE, human preference scoring, and task-specific benchmarks — as well as qualitative assessment for factuality and coherence."
+    },
+    {
+        "question": "What is ML pipeline architecture?",
+        "answer": "An ML pipeline includes data ingestion, preprocessing, feature engineering, model training, evaluation, and deployment stages — each automated and monitored in production."
+    },
+    {
+        "question": "What are model deployment strategies?",
+        "answer": "Common strategies include blue-green deployment, canary releases, shadow deployment, and A/B testing — each balancing risk, speed, and observability."
+    },
+    {
+        "question": "What is a VLM?",
+        "answer": "A Vision-Language Model processes both images and text simultaneously — enabling tasks like image captioning, visual question answering, and multimodal document analysis."
+    },
+    {
+        "question": "What is multimodal AI?",
+        "answer": "Multimodal AI models work across multiple data types — text, images, audio, or video — enabling richer understanding and generation than single-modality models."
+    },
+    {
+        "question": "What is system design in AI interviews?",
+        "answer": "AI system design questions ask you to architect end-to-end solutions — such as designing a fraud detection system or a document Q&A service — covering data, models, APIs, storage, and scalability."
+    },
+
+    # ============================================================
+    # AI IN BANKING — DOMAIN INTERSECTION
+    # ============================================================
+    {
+        "question": "Why are you learning AI?",
+        "answer": "AI represents the next transformation wave in enterprise banking systems, and combining my 20 years of domain expertise with AI capabilities is my strategic competitive advantage."
+    },
+    {
+        "question": "What are your career goals?",
+        "answer": "My goal is to bridge traditional banking systems with modern AI-driven architectures — building intelligent automation, AI-powered compliance tools, and smart financial assistants."
+    },
+    {
+        "question": "How can AI be applied in banking?",
+        "answer": "AI can power fraud detection, credit risk scoring, document processing for trade finance, regulatory compliance monitoring, customer service chatbots, and predictive analytics."
+    },
+    {
+        "question": "Can you build an AI system for trade finance?",
+        "answer": "Yes — for example, a RAG-based document analysis tool could automatically extract and verify trade finance document data against LC terms, reducing manual review time significantly."
+    },
+    {
+        "question": "What is a banking chatbot powered by AI?",
+        "answer": "An AI banking chatbot uses LLMs with RAG to answer customer or staff questions about products, transactions, or compliance policies based on verified institutional knowledge."
+    },
+    {
+        "question": "How does your Java experience complement your AI skills?",
+        "answer": "My deep Java/Spring Boot expertise allows me to integrate Python AI services into enterprise banking backends — building production-grade AI features within existing infrastructure."
+    },
+    {
+        "question": "What unique value do you bring as an AI engineer?",
+        "answer": "I combine 20 years of banking domain expertise with practical AI engineering skills — a rare combination that allows me to build AI solutions grounded in real financial business requirements."
+    },
+    {
+        "question": "Have you integrated AI into production banking systems?",
+        "answer": "I am currently working toward integrating AI capabilities into the trade finance platform at Azentio, leveraging my deep knowledge of the system's architecture and business logic."
+    },
+    {
+        "question": "What AI frameworks are you most comfortable with?",
+        "answer": "I'm most comfortable with LangChain for RAG pipelines, FastAPI for AI backends, FAISS for vector search, and the Claude/OpenAI APIs for LLM integration."
+    },
+    {
+        "question": "Where do you see AI in banking in 5 years?",
+        "answer": "In 5 years, AI will be embedded in every layer of banking operations — from intelligent document processing in trade finance to AI-assisted regulatory reporting and real-time fraud prevention."
+    },
+
+    # ============================================================
+    # ADVANCED ML & ALGORITHMS
+    # ============================================================
+    {
+        "question": "What is a Support Vector Machine?",
+        "answer": "An SVM finds the optimal hyperplane that best separates classes by maximizing the margin between support vectors — effective for high-dimensional data like text classification."
+    },
+    {
+        "question": "What is a decision tree?",
+        "answer": "A decision tree is a model that makes predictions by learning a series of binary rules from features — interpretable and often used as a building block for ensemble methods."
+    },
+    {
+        "question": "What is a Random Forest?",
+        "answer": "A Random Forest is an ensemble of decision trees trained on random subsets of data and features, combining their predictions to reduce overfitting and improve accuracy."
+    },
+    {
+        "question": "What is K-Nearest Neighbors?",
+        "answer": "KNN classifies a new data point by looking at the K closest training examples and assigning the majority class among them — simple but effective for small datasets."
+    },
+    {
+        "question": "What is the silhouette score?",
+        "answer": "The silhouette score measures how similar a data point is to its own cluster compared to other clusters — a higher score indicates better-defined, well-separated clusters."
+    },
+    {
+        "question": "What is cross-validation?",
+        "answer": "Cross-validation evaluates a model by training and testing on multiple splits of the dataset, providing a more reliable performance estimate than a single train-test split."
+    },
+    {
+        "question": "What is regularization?",
+        "answer": "Regularization adds a penalty to the loss function to discourage overly complex models — L1 regularization promotes sparsity, L2 penalizes large weights."
+    },
+    {
+        "question": "What is a learning rate?",
+        "answer": "The learning rate controls how large the steps are during gradient descent — too high causes instability, too low makes training extremely slow."
+    },
+    {
+        "question": "What is batch size in deep learning?",
+        "answer": "Batch size determines how many samples are processed before updating the model's weights. Smaller batches add noise that can help generalization; larger batches train faster."
+    },
+    {
+        "question": "What is an epoch in model training?",
+        "answer": "An epoch is one complete pass through the entire training dataset. Training typically runs for multiple epochs until the model converges."
+    },
+    {
+        "question": "What is data augmentation?",
+        "answer": "Data augmentation creates modified versions of training samples — like flipping, rotating, or cropping images — to artificially expand the dataset and improve generalization."
+    },
+    {
+        "question": "What is dropout in neural networks?",
+        "answer": "Dropout randomly deactivates a fraction of neurons during training, preventing co-adaptation and acting as a regularization technique to reduce overfitting."
+    },
+    {
+        "question": "What is batch normalization?",
+        "answer": "Batch normalization normalizes layer inputs within each mini-batch, stabilizing training and allowing the use of higher learning rates."
+    },
+    {
+        "question": "What is an LSTM?",
+        "answer": "Long Short-Term Memory networks are a type of RNN designed to learn long-range dependencies in sequential data — useful for time series, text, and financial transaction sequences."
+    },
+    {
+        "question": "What is an RNN?",
+        "answer": "A Recurrent Neural Network processes sequential data by maintaining a hidden state that carries information across time steps — foundational for language modeling before Transformers."
+    },
+    {
+        "question": "What is transfer learning in NLP?",
+        "answer": "Transfer learning in NLP reuses a pretrained language model like BERT or GPT and fine-tunes it on a specific task, leveraging the general language understanding already learned."
+    },
+    {
+        "question": "What is BERT?",
+        "answer": "BERT is a bidirectional Transformer model pretrained by Google that reads text in both directions simultaneously, excelling at understanding tasks like classification and question answering."
+    },
+    {
+        "question": "What is GPT?",
+        "answer": "GPT is OpenAI's autoregressive Transformer model pretrained to predict the next token — the foundation for ChatGPT and the most widely used LLM architecture."
+    },
+    {
+        "question": "What is perplexity in LLMs?",
+        "answer": "Perplexity measures how well an LLM predicts a sample of text — lower perplexity indicates the model is less surprised by the text and has better language modeling capability."
+    },
+    {
+        "question": "What is BLEU score?",
+        "answer": "BLEU (Bilingual Evaluation Understudy) measures the similarity between machine-generated text and reference translations — commonly used to evaluate LLM output quality."
+    },
+    {
+        "question": "What is ROUGE score?",
+        "answer": "ROUGE measures the overlap between generated and reference text at the n-gram level — widely used for evaluating summarization and generation quality."
+    },
+    {
+        "question": "What is a knowledge graph?",
+        "answer": "A knowledge graph is a structured representation of entities and their relationships — useful for enriching LLM responses with structured domain knowledge in banking AI systems."
+    },
+    {
+        "question": "What is model distillation?",
+        "answer": "Model distillation trains a smaller student model to mimic a larger teacher model's outputs, resulting in a more efficient model suitable for production deployment."
+    },
+    {
+        "question": "What is quantization in AI?",
+        "answer": "Quantization reduces model size and inference speed by representing weights in lower precision formats like INT8 or INT4 instead of full FP32 — essential for running LLMs on limited hardware."
+    },
+    {
+        "question": "What is attention masking?",
+        "answer": "Attention masking prevents the model from attending to padding tokens or future tokens during training, ensuring computations are only over relevant positions."
+    },
+
+    # ============================================================
+    # PRODUCTION AI & SYSTEM DESIGN
+    # ============================================================
+    {
+        "question": "How do you structure a production Python AI project?",
+        "answer": "I follow a layered structure with separate modules for data ingestion, preprocessing, model inference, API layer, logging, and exception handling — with environment-based configuration."
+    },
+    {
+        "question": "What logging practices do you use in AI applications?",
+        "answer": "I implement structured logging with log levels (DEBUG, INFO, WARNING, ERROR), correlation IDs for tracing requests, and centralized log aggregation for production monitoring."
+    },
+    {
+        "question": "How do you handle exceptions in AI APIs?",
+        "answer": "I use try-except blocks with custom exception classes, return meaningful HTTP error codes and messages, and log full stack traces without exposing internals to clients."
+    },
+    {
+        "question": "What is model monitoring in production?",
+        "answer": "Model monitoring tracks prediction quality, input data drift, latency, and error rates over time — alerting when model performance degrades so you can retrain or rollback."
+    },
+    {
+        "question": "What is data drift?",
+        "answer": "Data drift occurs when the statistical properties of production input data shift away from the training data distribution, causing model performance to degrade silently."
+    },
+    {
+        "question": "What is a Dockerfile?",
+        "answer": "A Dockerfile is a script that defines how to build a container image — specifying the base image, dependencies, application code, and startup command."
+    },
+    {
+        "question": "What is an integration test in AI systems?",
+        "answer": "Integration tests verify that different components of an AI system work together correctly — for example, testing that the API correctly passes queries to the model and returns formatted responses."
+    },
+    {
+        "question": "What is a REST API?",
+        "answer": "A REST API exposes application functionality over HTTP using standard methods like GET, POST, PUT, and DELETE — the standard way I expose AI model inference to client applications."
+    },
+    {
+        "question": "What are CRUD operations?",
+        "answer": "CRUD stands for Create, Read, Update, Delete — the four basic database operations that form the foundation of most web and AI application backends."
+    },
+    {
+        "question": "What is database migration in AI apps?",
+        "answer": "Database migrations manage schema changes over time using version-controlled scripts, ensuring the database structure stays synchronized with application code across environments."
+    },
+
+    # ============================================================
+    # CAREER & MOTIVATION
+    # ============================================================
+    {
+        "question": "Why did you transition to AI?",
+        "answer": "After 20 years in banking software, I recognized AI as the defining technology of the next era. My deep domain knowledge gives me an advantage in building AI systems that solve real banking problems."
+    },
+    {
+        "question": "What was your biggest technical challenge?",
+        "answer": "Leading the trade finance migration from PowerBuilder to Java — preserving complex embedded business rules, Islamic finance logic, and SWIFT integration while modernizing the entire architecture."
+    },
+    {
+        "question": "What motivates you professionally?",
+        "answer": "I'm driven by solving hard problems at the intersection of banking domain expertise and cutting-edge technology — building systems that genuinely improve how financial institutions operate."
+    },
+    {
+        "question": "How do you stay current with AI?",
+        "answer": "I read AI research papers, complete structured courses, build real projects, create educational content, and actively participate in the AI engineering community."
+    },
+    {
+        "question": "What is your greatest professional achievement?",
+        "answer": "Initiating and leading the microservices transformation of the trade finance platform — a complex, mission-critical system serving international banks — while maintaining full production stability."
+    },
+    {
+        "question": "How do you balance learning AI while working full-time?",
+        "answer": "I treat learning like a professional commitment — dedicating consistent time each day, applying concepts immediately in real projects, and using my content creation as a way to reinforce what I learn."
+    },
+    {
+        "question": "What do you do when you face a technical blocker?",
+        "answer": "I systematically isolate the problem, check logs and documentation, build a minimal reproducible case, and if needed consult the community — I believe in methodical debugging over guessing."
+    },
+    {
+        "question": "What type of projects excite you most?",
+        "answer": "Projects that combine deep technical complexity with real business impact — like building AI-powered document intelligence for trade finance or designing multi-agent systems for banking automation."
+    },
+    {
+        "question": "How do you approach mentoring junior developers?",
+        "answer": "I focus on explaining the reasoning behind architectural decisions, conducting thorough code reviews with constructive feedback, and encouraging developers to think in terms of maintainability and business impact."
+    },
+    {
+        "question": "What makes you stand out as a candidate?",
+        "answer": "The combination of 20 years of banking domain expertise, deep Java/enterprise architecture skills, practical AI engineering experience, and the ability to communicate technical concepts in Arabic to regional markets."
+    },
+
+    # ============================================================
+    # ADDITIONAL TECHNICAL — NLP, SEARCH, DEPLOYMENT
+    # ============================================================
+    {
+        "question": "What is named entity recognition (NER)?",
+        "answer": "NER identifies and classifies entities in text — such as names, dates, companies, and financial amounts — directly applicable to automating trade finance document extraction."
+    },
+    {
+        "question": "What is text summarization?",
+        "answer": "Text summarization condenses long documents into shorter, coherent summaries — either extractive (selecting key sentences) or abstractive (generating new summary text)."
+    },
+    {
+        "question": "What is a document chunking strategy in RAG?",
+        "answer": "Chunking splits documents into overlapping or fixed-size segments before embedding them, ensuring relevant context fits within the retrieval window and is semantically coherent."
+    },
+    {
+        "question": "What is reranking in RAG pipelines?",
+        "answer": "Reranking applies a second, more precise model to reorder initially retrieved candidates, improving the quality of context passed to the LLM."
+    },
+    {
+        "question": "What is a hybrid search approach?",
+        "answer": "Hybrid search combines dense vector search (semantic similarity) with sparse keyword search (BM25), capturing both conceptual and exact-match relevance in document retrieval."
+    },
+    {
+        "question": "What is BM25?",
+        "answer": "BM25 is a classic information retrieval ranking algorithm based on term frequency and inverse document frequency — commonly combined with semantic search in hybrid RAG systems."
+    },
+    {
+        "question": "What is LangGraph?",
+        "answer": "LangGraph is a framework for building stateful, graph-based multi-agent AI workflows — I've explored it for designing complex banking automation pipelines with conditional routing."
+    },
+    {
+        "question": "What is an AI agent?",
+        "answer": "An AI agent is an LLM-powered system that can perceive its environment, reason about goals, use tools, and take multi-step actions autonomously to complete a task."
+    },
+    {
+        "question": "What is a system prompt?",
+        "answer": "A system prompt sets the behavior, persona, and constraints for an LLM before the user conversation begins — a critical element in building reliable AI applications."
+    },
+    {
+        "question": "What is context window?",
+        "answer": "The context window is the maximum amount of text an LLM can process in a single inference call — a key constraint when designing RAG and multi-agent systems."
+    },
+    {
+        "question": "What is hallucination in LLMs?",
+        "answer": "Hallucination is when an LLM generates confident but factually incorrect information — RAG helps mitigate this by grounding responses in retrieved verified documents."
+    },
+    {
+        "question": "How do you reduce LLM hallucinations?",
+        "answer": "I use RAG to ground responses in retrieved documents, add citations to answers, set clear instructions in the system prompt, and validate outputs against authoritative sources."
+    },
+    {
+        "question": "What is temperature in LLM inference?",
+        "answer": "Temperature controls the randomness of LLM outputs — lower values (near 0) produce deterministic, focused answers suitable for factual banking queries; higher values produce more creative outputs."
+    },
+    {
+        "question": "What is top-p sampling?",
+        "answer": "Top-p (nucleus) sampling restricts token selection to the smallest set of tokens whose cumulative probability exceeds p — balancing diversity and coherence in LLM generation."
+    },
+    {
+        "question": "What is a system message vs user message in LLM APIs?",
+        "answer": "The system message sets the model's role and instructions before conversation begins. User messages are the human turns in the dialogue. Both shape the model's responses."
+    },
+    {
+        "question": "What is streaming in LLM APIs?",
+        "answer": "Streaming returns LLM tokens progressively as they are generated rather than waiting for the full response — improving perceived responsiveness in chatbot interfaces."
+    },
+    {
+        "question": "What is an API rate limit?",
+        "answer": "A rate limit caps how many API requests can be made within a time window — I handle this by implementing retry logic with exponential backoff in my AI application clients."
+    },
+    {
+        "question": "What is nginx and why did you use it?",
+        "answer": "Nginx is a high-performance web server and reverse proxy. I used it to handle HTTPS termination, route traffic to my FastAPI backend, and serve the React frontend for my RAG chatbot deployment."
+    },
+    {
+        "question": "What is SSL/TLS in web deployments?",
+        "answer": "SSL/TLS encrypts communication between clients and servers. I configured SSL certificates with Let's Encrypt via nginx to secure my AI chatbot's production deployment."
+    },
+    {
+        "question": "What is GitHub Actions?",
+        "answer": "GitHub Actions is a CI/CD automation platform I used to build, test, and deploy my RAG chatbot to AWS Lightsail automatically on every code push to the main branch."
+    },
+    {
+        "question": "What is a Makefile in software projects?",
+        "answer": "A Makefile defines build automation commands — I use it in AI projects to standardize tasks like installing dependencies, running tests, building Docker images, and deploying services."
+    },
+    {
+        "question": "What is an environment variable in production?",
+        "answer": "Environment variables store configuration and secrets (like API keys and database URLs) outside the codebase — essential for secure, portable AI application deployment."
+    },
+    {
+        "question": "What is a webhook?",
+        "answer": "A webhook is an HTTP callback triggered by an event — for example, a GitHub webhook that triggers a CI/CD pipeline when code is pushed to a repository."
+    },
+    {
+        "question": "What is Bash scripting used for in AI workflows?",
+        "answer": "Bash scripting automates repetitive tasks in AI pipelines — such as data preprocessing, model training runs, Docker build and push steps, and server configuration."
+    },
+    {
+        "question": "What is a multi-stage Docker build?",
+        "answer": "A multi-stage Docker build uses multiple FROM statements to separate build and runtime environments, reducing the final image size by excluding build tools and intermediate artifacts."
+    },
+    {
+        "question": "What is Podman vs Docker?",
+        "answer": "Both are container runtimes, but Podman is daemonless and rootless — it doesn't require a background service or root privileges, making it preferred in enterprise security environments like Azentio."
+    },
+    {
+        "question": "What is container orchestration?",
+        "answer": "Container orchestration automates deployment, scaling, and management of containerized applications — Kubernetes is the industry standard, which I am exploring for scaling AI microservices."
+    },
+    {
+        "question": "What is the difference between SQL and NoSQL databases?",
+        "answer": "SQL databases (like Oracle and PostgreSQL) store structured relational data with ACID guarantees. NoSQL databases (like MongoDB or Redis) offer flexible schemas and horizontal scaling — each suited to different AI application needs."
+    },
+    {
+        "question": "What is Redis used for in AI systems?",
+        "answer": "Redis is an in-memory data store I use for caching LLM responses, storing session state in chatbots, and as a fast message broker in real-time AI applications."
+    },
+    {
+        "question": "What is a message queue?",
+        "answer": "A message queue (like Kafka or RabbitMQ) decouples producers and consumers, enabling asynchronous, reliable communication between microservices and AI processing pipelines."
+    },
+    {
+        "question": "What is a load balancer?",
+        "answer": "A load balancer distributes incoming requests across multiple service instances — essential for scaling AI API backends to handle high traffic without single points of failure."
+    },
+    {
+        "question": "What is horizontal vs vertical scaling?",
+        "answer": "Horizontal scaling adds more instances of a service to distribute load. Vertical scaling increases the resources of a single instance. AI inference often requires horizontal scaling for cost efficiency."
+    },
+    {
+        "question": "What is your contact information?",
+        "answer": "You can reach me at ji190579@gmail.com or +961-70-817392. I'm based in Chiah, Beirut, Lebanon and open to both local and remote opportunities."
+    },
+    {
+        "question": "How can I see your AI project work?",
+        "answer": "You can view my RAG chatbot project on GitHub at https://github.com/ji190579/rag_llm_notes and follow my AI educational content on LinkedIn."
+    },
+]
+
+print(f"Total FAQs: {len(faqs)}")

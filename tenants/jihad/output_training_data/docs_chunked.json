@@ -1,0 +1,1042 @@
+[
+  {
+    "id": "06c5e369-5543-46a7-8e2d-f9fee9d08114",
+    "chapter": "# Course 00: on boarding for AI Accelarotor",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "# Course 00: on boarding for AI Accelarotor\n\n---\n\n## A. Overview — What the AI Career Accelerator Is\n\n- its a full AI Engineer path with deeper, industry-level skills.  \n- Covers ML → DL → GenAI with real deployment, optimization, and architecture work.  \n- Focuses heavily on building a job-ready portfolio for high-paying AI roles.  \n- Trains you to operate as:\n  - AI Engineer  \n  - Solutions Architect  \n  - Automation Specialist  \n\n---\n\n## B. Core Program Components\n\n### 1. AI Fundamentals\n- Machine Learning foundations: supervised, unsupervised learning  \n- Evaluation metrics and model assessment  \n- Deep Learning: CNNs, RNNs, Transformers  \n- Generative AI: LLMs, diffusion models, RAG systems  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 711,
+      "prev_keywords": null,
+      "keywords": [
+        "ai",
+        "learning",
+        "engineer",
+        "course",
+        "00"
+      ]
+    }
+  },
+  {
+    "id": "e575a721-8f86-4b26-bb41-b20b1116deed",
+    "chapter": "---",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "---\n\n### 2. Advanced MLOps\n- Model packaging, deployment, scaling  \n- CI/CD pipelines for AI systems  \n- Monitoring drift, performance, reliability in production  \n\n---\n\n### 3. Multi-Modality\n- Building systems combining text, image, audio  \n- Agent pipelines using multiple data types  \n\n---\n\n### 4. Open-Source Mastery\n- When to go offline (privacy, compliance, restrictions)  \n- Running models locally using PyTorch / TensorFlow + CUDA  \n- GPU execution using `.to(\"cuda\")`  \n- Contributing to open-source AI ecosystems  \n\n---\n\n### 5. Deploy Models Anywhere\n- Cloud: AWS / Azure / GCP  \n- On-premise deployments  \n- Local GPU setups  \n- Platforms: Render, Railway, Supabase  \n- Decision factors: cost, scale, latency  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 726,
+      "prev_keywords": [
+        "ai",
+        "learning",
+        "engineer",
+        "course",
+        "00"
+      ],
+      "keywords": [
+        "using",
+        "pipelines",
+        "ai",
+        "systems",
+        "models"
+      ]
+    }
+  },
+  {
+    "id": "b7e3e58d-71dc-4891-b229-a1f223f7d21f",
+    "chapter": "---",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "---\n\n### 6. Fine-Tuning & Optimization\n- Working with LLaMA, CLIP, Whisper, vision models  \n- LoRA fine-tuning  \n- Quantization and pruning  \n- GPU optimization for performance and cost  \n- Offline AI lab setups  \n\n---\n\n### 7. Automation Projects\n- Workflow automation replacing business tasks  \n- Tools: APIs, webhooks, CRMs, Zapier, Make  \n- Building full AI-powered automation systems  \n\n---\n\n### 8. Solutions Architecture\n- Designing full AI system architectures  \n- Breaking systems into:\n  - ingestion  \n  - processing  \n  - models  \n  - APIs  \n  - UI  \n  - logging  \n- Containerization (Docker) and orchestration (Kubernetes)  \n- Transitioning to senior/lead roles  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 678,
+      "prev_keywords": [
+        "using",
+        "pipelines",
+        "ai",
+        "systems",
+        "models"
+      ],
+      "keywords": [
+        "automation",
+        "optimization",
+        "models",
+        "ai",
+        "apis"
+      ]
+    }
+  },
+  {
+    "id": "5d60f6ec-59ad-4b33-a259-ca621d7f9b10",
+    "chapter": "---",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "---\n\n### 9. Career & Portfolio Building\n- LinkedIn positioning for authority  \n- GitHub optimization:\n  - clean repositories  \n  - structured documentation  \n  - pinned projects  \n- Portfolio with real-world impact projects  \n- Resume/CV tailored for AI roles  \n- Content strategy for visibility and recruitment  \n\n---\n\n## C. Program In-Depth — Detailed Breakdown\n\n### 1. Where to Deploy\n- Cloud: AWS, Azure, GCP, DigitalOcean  \n- Lightweight platforms: Render, Supabase, Railway  \n- Decision factors:\n  - scale  \n  - traffic  \n  - latency  \n  - cost  \n\n---\n\n### 2. Multi-Modality in Practice\n- Systems combining text + image understanding  \n- Example: AI agent that processes documents, screenshots, and instructions  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 3,
+      "chunk_length": 724,
+      "prev_keywords": [
+        "automation",
+        "optimization",
+        "models",
+        "ai",
+        "apis"
+      ],
+      "keywords": [
+        "portfolio",
+        "projects",
+        "ai",
+        "career",
+        "building"
+      ]
+    }
+  },
+  {
+    "id": "17cc84da-a6b3-4338-81db-b3e5e6d950f7",
+    "chapter": "---",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "---\n\n### 3. Open-Source Offline Mastery\n- When to use offline AI:\n  - privacy constraints  \n  - legal restrictions  \n  - no internet environments  \n\n- Setup:\n  - install PyTorch, CUDA, transformers  \n  - load models locally  \n\n- GPU usage:\n  - accelerates matrix operations in deep learning  \n  - `.to(\"cuda\")` moves models to GPU  \n\n- Offline fine-tuning:\n  - LoRA or full model training on local hardware  \n\n---\n\n### 4. Deployment Strategy\n- On-prem client systems → deploy locally  \n- Data center clients → Kubernetes / compute clusters  \n- No infrastructure → cloud deployment (EC2, Vertex AI, Azure ML)  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 4,
+      "chunk_length": 614,
+      "prev_keywords": [
+        "portfolio",
+        "projects",
+        "ai",
+        "career",
+        "building"
+      ],
+      "keywords": [
+        "offline",
+        "ai",
+        "cuda",
+        "models",
+        "locally"
+      ]
+    }
+  },
+  {
+    "id": "9b5e40a6-d317-41a7-b0a3-7b6e52b1bf51",
+    "chapter": "---",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "---\n\n### 5. Fine-Tuning & Optimization (Deep Dive)\n- Start with pre-trained models → adapt to domain  \n- LoRA for efficient training  \n- Quantization for faster inference and lower memory  \n- GPU optimization for cost and performance  \n\n---\n\n### 6. Automation Engineering\n- Build end-to-end AI agents  \n- Replace manual workflows with automation  \n- Use APIs, Python, and no-code tools  \n- Deliver client-ready automation systems  \n\n---\n\n### 7. Solutions Architecture Expertise\n- Build high-level system designs  \n- Define system components:\n  - data ingestion  \n  - processing layer  \n  - model layer  \n  - API layer  \n  - UI layer  \n  - logging/monitoring  \n- Use Docker + Kubernetes for scalability  \n- Skill level: senior / team lead readiness  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 5,
+      "chunk_length": 754,
+      "prev_keywords": [
+        "offline",
+        "ai",
+        "cuda",
+        "models",
+        "locally"
+      ],
+      "keywords": [
+        "layer",
+        "automation",
+        "optimization",
+        "build",
+        "use"
+      ]
+    }
+  },
+  {
+    "id": "12798235-0b8c-4b86-9ed8-45fdc2e4358c",
+    "chapter": "---",
+    "source": "Course_00-on boarding for AI Accelarotor.md",
+    "title": "# Course 00: on boarding for AI Accelarotor",
+    "doc_type": "notes",
+    "text": "---\n\n### 8. Online Presence & Brand\n- LinkedIn:\n  - authority positioning  \n  - strong profile structure  \n- GitHub:\n  - clean repos  \n  - documentation  \n  - real demos  \n- Portfolio:\n  - project-based proof of skill  \n- Content:\n  - technical posts and project breakdowns  \n- CV/Resume:\n  - optimized for AI roles with measurable impact",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 6,
+      "chunk_length": 338,
+      "prev_keywords": [
+        "layer",
+        "automation",
+        "optimization",
+        "build",
+        "use"
+      ],
+      "keywords": [
+        "online",
+        "presence",
+        "brand",
+        "linkedin",
+        "authority"
+      ]
+    }
+  },
+  {
+    "id": "4b0b7ba0-aa36-4f88-b6f0-622055cd302a",
+    "chapter": "# Course 0: Python GitHub Course",
+    "source": "Course_0_Python_GitHub_Course.md",
+    "title": "# Course 0: Python GitHub Course",
+    "doc_type": "notes",
+    "text": "# Course 0: Python GitHub Course\n\n## Introduction\n- What is this course about?\n- What is Python Programming Language?\n\n## Setup\n- Prerequisites\n- Do you have Python installed?\n- Python Best Practices: Virtual Environment\n- Jupyter Notebooks\n\n## Python 101\n\n### Basics\n- Basic Data Types\n- Data Types\n- Strings in Python\n- Lists in Python\n\n### Control Flow\n- For Loops and If Conditions\n\n### Data Structures\n- Dictionaries\n- Tuples and Sets\n- Comprehensive List\n\n### Programming Concepts\n- Functions and Classes\n\n## GitHub\n- Introduction to GitHub\n- Basic Git Commands\n- Repository Management\n\n## Practice\n- Exercises Explanation\n\n## Final\n- The End (Happy Ending)\n- Project and Certificate",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 689,
+      "prev_keywords": null,
+      "keywords": [
+        "python",
+        "course",
+        "github",
+        "data",
+        "introduction"
+      ]
+    }
+  },
+  {
+    "id": "2cdb60b2-b55d-4554-ba10-6fd34d27b193",
+    "chapter": "# Course 10: LLM Frameworks in Production",
+    "source": "Course_10_LLM Frameworks in Production.md",
+    "title": "# Course 10: LLM Frameworks in Production",
+    "doc_type": "notes",
+    "text": "# Course 10: LLM Frameworks in Production\n\n## Course Overview\nThis module focuses on production-grade LLM frameworks, agent orchestration, Model Context Protocol (MCP), and modern AI application development.\n\n---\n\n# Chapter 1: Introduction\n\n## Overview\n- What to Expect\n- Course Roadmap\n- Production AI Ecosystem Overview\n\n---\n\n# Chapter 2: LangGraph\n\n## Fundamentals\n- Everything You Need to Know About LangGraph\n- LangGraph Architecture\n- Nodes and Edges\n- State Management\n\n## Building Agents\n- Build Your First AI LangGraph Agent\n- Agent Workflow Design\n\n## Advanced Workflows\n- Conditional Edges\n- Chain of Thought Agent\n- Router Agent\n\n## Hands-On\n- First LangGraph Project\n- Multi-Step Agent Workflow\n- Agent Routing Examples\n\n---\n\n# Chapter 3: Model Context Protocol (MCP)",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 780,
+      "prev_keywords": null,
+      "keywords": [
+        "agent",
+        "langgraph",
+        "course",
+        "overview",
+        "ai"
+      ]
+    }
+  },
+  {
+    "id": "82543fd7-1dff-4eff-9afb-8f4e2e9072b4",
+    "chapter": "---",
+    "source": "Course_10_LLM Frameworks in Production.md",
+    "title": "# Course 10: LLM Frameworks in Production",
+    "doc_type": "notes",
+    "text": "---\n\n# Chapter 3: Model Context Protocol (MCP)\n\n## Introduction\n- What is MCP?\n- Why MCP Matters\n\n## Core Concepts\n- MCP Architecture\n- MCP Components\n- MCP Communication Flow\n- MCP Servers and Clients\n\n## MCP Server Development\n- MCP Live Coding\n- Create Your First MCP Server\n\n## MCP Client Development\n- MCP Client Explanation\n- MCP Client Implementation\n\n## MCP + Agent Integration\n- MCP Client using LangChain\n- MCP Client using ReAct Agent\n- Connect MCP to Claude\n\n## Hands-On Projects\n- MCP Server Project\n- MCP Client Project\n- Agent + MCP Integration\n\n---\n\n# Chapter 4: Agno Framework\n\n## Introduction\n- What is Agno?\n- Agno Ecosystem Overview\n\n## Quick Start\n- Quick Start Exercises",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 692,
+      "prev_keywords": [
+        "agent",
+        "langgraph",
+        "course",
+        "overview",
+        "ai"
+      ],
+      "keywords": [
+        "mcp",
+        "client",
+        "server",
+        "agent",
+        "agno"
+      ]
+    }
+  },
+  {
+    "id": "8eff183d-973d-47be-8090-1588441cabc4",
+    "chapter": "## Introduction",
+    "source": "Course_10_LLM Frameworks in Production.md",
+    "title": "# Course 10: LLM Frameworks in Production",
+    "doc_type": "notes",
+    "text": "## Introduction\n- What is Agno?\n- Agno Ecosystem Overview\n\n## Quick Start\n- Quick Start Exercises\n\n## Core Concepts\n- Everything You Need to Know About Agno\n- Agent Development with Agno\n- Workflow Orchestration\n\n## Hands-On\n- Build AI Applications with Agno\n- Agent-Based Solutions\n\n---\n\n# Chapter 5: Multimodal AI\n\n## Introduction\n- What is Multimodality?\n- Why Multimodal Systems Matter\n\n## Core Concepts\n- Everything You Need to Know About Multimodality\n- Text + Image Processing\n- Text + Audio Processing\n- Text + Video Processing\n\n## Building Multimodal Solutions\n- Multimodal AI Architecture\n- Data Processing Pipelines\n- Production Considerations\n\n## Hands-On\n- Multimodal Solution Implementation\n- End-to-End Multimodal Project\n\n---\n\n# Final Project\n\n## Production AI System",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 783,
+      "prev_keywords": [
+        "mcp",
+        "client",
+        "server",
+        "agent",
+        "agno"
+      ],
+      "keywords": [
+        "multimodal",
+        "agno",
+        "ai",
+        "processing",
+        "text"
+      ]
+    }
+  },
+  {
+    "id": "6880071e-38ff-4dfe-b9a2-42d2ea919646",
+    "chapter": "---",
+    "source": "Course_10_LLM Frameworks in Production.md",
+    "title": "# Course 10: LLM Frameworks in Production",
+    "doc_type": "notes",
+    "text": "---\n\n# Final Project\n\n## Production AI System\n\nBuild a complete AI application using:\n\n- LangGraph\n- MCP\n- Agno\n- Multimodal Components\n\n### Features\n- Agent Orchestration\n- Tool Calling\n- External Integrations\n- Context Management\n- Production Deployment\n\n---\n\n# Learning Outcomes\n\nBy the end of this course you will be able to:\n\n- Build production-ready AI agents using LangGraph\n- Design and implement MCP servers and clients\n- Integrate MCP with LangChain, ReAct, and Claude\n- Develop AI applications using Agno\n- Build multimodal AI systems\n- Deploy scalable AI workflows in production environments",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 3,
+      "chunk_length": 603,
+      "prev_keywords": [
+        "multimodal",
+        "agno",
+        "ai",
+        "processing",
+        "text"
+      ],
+      "keywords": [
+        "ai",
+        "production",
+        "build",
+        "using",
+        "mcp"
+      ]
+    }
+  },
+  {
+    "id": "d390df5f-c900-4e98-b690-139a11a3b741",
+    "chapter": "# Course 11: Generative AI and Diffusion Models",
+    "source": "Course_11-Generative AI and Diffusion Models.md",
+    "title": "# Course 11: Generative AI and Diffusion Models",
+    "doc_type": "notes",
+    "text": "# Course 11: Generative AI and Diffusion Models\n\n## Course Introduction\n\n* Course Overview\n* Learning Objectives\n* Generative AI Landscape\n\n---\n\n# Module 1: Variational Autoencoders (VAE)\n\n## Introduction to VAE\n\n* What is a Variational Autoencoder?\n* Encoder and Decoder Architecture\n* Latent Space Representation\n* Training Process\n* VAE Applications\n\n---\n\n# Module 2: Diffusion Models\n\n## Introduction to Diffusion Models\n\n* Fundamentals of Diffusion Models\n* Forward Diffusion Process\n* Reverse Diffusion Process\n* Noise Prediction\n* Training Diffusion Models\n\n## Stable Diffusion\n\n* Stable Diffusion Architecture\n* Text-to-Image Generation\n* Prompt Engineering Basics\n* Image Generation Pipeline\n\n---\n\n# Module 3: Vision Transformers (ViT)\n\n## Introduction to Vision Transformers",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 784,
+      "prev_keywords": null,
+      "keywords": [
+        "diffusion",
+        "models",
+        "introduction",
+        "course",
+        "module"
+      ]
+    }
+  },
+  {
+    "id": "fb33f0c8-1ef2-4763-82d7-8dd979dedcf6",
+    "chapter": "---",
+    "source": "Course_11-Generative AI and Diffusion Models.md",
+    "title": "# Course 11: Generative AI and Diffusion Models",
+    "doc_type": "notes",
+    "text": "---\n\n# Module 3: Vision Transformers (ViT)\n\n## Introduction to Vision Transformers\n\n* Transformer Architecture for Vision\n* Image Patching\n* Self-Attention Mechanism\n* ViT Training Process\n* Comparison with CNNs\n\n---\n\n# Module 4: Practical Implementation\n\n## Stable Diffusion WebUI\n\n* Installing Stable Diffusion WebUI\n* Configuration and Setup\n* Generating Images\n* Model Management\n\n## Fine-Tuning Stable Diffusion\n\n* Fine-Tuning Concepts\n* Dataset Preparation\n* Training Custom Models\n* Evaluating Results\n\n---\n\n# Module 5: Advanced Generative Models\n\n## Additional Generative Models\n\n* GANs (Generative Adversarial Networks)\n* Advanced Diffusion Architectures\n* Emerging Generative AI Models\n* Model Comparison and Selection\n\n---\n\n# Exercises and Assignments\n\n## Hands-On Exercises",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 785,
+      "prev_keywords": [
+        "diffusion",
+        "models",
+        "introduction",
+        "course",
+        "module"
+      ],
+      "keywords": [
+        "diffusion",
+        "models",
+        "generative",
+        "module",
+        "vision"
+      ]
+    }
+  },
+  {
+    "id": "4f881a97-958b-48d1-9923-f39ee58057d9",
+    "chapter": "---",
+    "source": "Course_11-Generative AI and Diffusion Models.md",
+    "title": "# Course 11: Generative AI and Diffusion Models",
+    "doc_type": "notes",
+    "text": "---\n\n# Exercises and Assignments\n\n## Hands-On Exercises\n\n* VAE Implementation Exercises\n* Diffusion Model Experiments\n* Vision Transformer Exercises\n* Stable Diffusion Practice Labs\n\n## Homework\n\n* Model Fine-Tuning Assignment\n* Image Generation Tasks\n* Architecture Analysis Exercises\n\n---\n\n# Capstone Project\n\n## End-to-End Generative AI Project\n\n* Project Requirements\n* Dataset Preparation\n* Model Selection\n* Training and Fine-Tuning\n* Deployment and Evaluation\n* Final Presentation\n\n---\n\n## Learning Outcomes\n\nBy the end of this course, you will be able to:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 563,
+      "prev_keywords": [
+        "diffusion",
+        "models",
+        "generative",
+        "module",
+        "vision"
+      ],
+      "keywords": [
+        "exercises",
+        "model",
+        "project",
+        "diffusion",
+        "assignments"
+      ]
+    }
+  },
+  {
+    "id": "8ed55e18-ef0d-46c1-9e96-dd8236be63ba",
+    "chapter": "---",
+    "source": "Course_11-Generative AI and Diffusion Models.md",
+    "title": "# Course 11: Generative AI and Diffusion Models",
+    "doc_type": "notes",
+    "text": "---\n\n## Learning Outcomes\n\nBy the end of this course, you will be able to:\n\n* Understand the theory behind VAEs and Diffusion Models\n* Explain how Stable Diffusion generates images\n* Work with Vision Transformers (ViT)\n* Install and use Stable Diffusion WebUI\n* Fine-tune image generation models\n* Compare different generative AI architectures\n* Build custom image generation solutions\n* Complete an end-to-end Generative AI project",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 3,
+      "chunk_length": 432,
+      "prev_keywords": [
+        "exercises",
+        "model",
+        "project",
+        "diffusion",
+        "assignments"
+      ],
+      "keywords": [
+        "diffusion",
+        "models",
+        "stable",
+        "image",
+        "generation"
+      ]
+    }
+  },
+  {
+    "id": "0eb16a15-8d6f-405c-b4fa-74850b9edb7f",
+    "chapter": "# Course 12: Soft Skills for Freelance and Client Work",
+    "source": "Course_12- Soft Skills for Freelance and Client Work.md",
+    "title": "# Course 12: Soft Skills for Freelance and Client Work",
+    "doc_type": "notes",
+    "text": "# Course 12: Soft Skills for Freelance and Client Work\n\n## Course Overview\n\n* Start Here\n* How to Work with Clients\n* Freelance Mindset\n\n---\n\n# Module 1: Client Acquisition\n\n* How to Get Clients\n* Positioning Yourself in the Market\n* Building Trust with Clients\n* Networking Strategies\n\n---\n\n# Module 2: Communication Skills\n\n* Never Outshine the Master (Client Psychology)\n* Listen More Than You Talk\n* Asking the Right Questions\n* Requirements Gathering\n* Clarifying Expectations\n\n---\n\n# Module 3: Proposal Writing\n\n* Drafting Professional Proposals\n* Structuring Project Proposals\n* Defining Scope of Work\n* Writing Clear Deliverables\n\n---\n\n# Module 4: Pricing Strategy\n\n* How to Price a Project\n* Value-Based Pricing\n* Estimation Techniques\n* Avoiding Underpricing\n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 773,
+      "prev_keywords": null,
+      "keywords": [
+        "module",
+        "client",
+        "work",
+        "clients",
+        "course"
+      ]
+    }
+  },
+  {
+    "id": "8f8a87dc-8bdc-498a-8077-57866645f688",
+    "chapter": "---",
+    "source": "Course_12- Soft Skills for Freelance and Client Work.md",
+    "title": "# Course 12: Soft Skills for Freelance and Client Work",
+    "doc_type": "notes",
+    "text": "---\n\n# Module 5: Pitching Clients\n\n* How to Pitch Your Offer Like a Pro\n* Sales Communication Basics\n* Handling Objections\n* Closing Deals\n\n---\n\n# Module 6: Project Management Models\n\n* Agile Methodology\n* Waterfall Methodology\n* Agile vs Waterfall Comparison\n* Choosing the Right Approach\n\n---\n\n# Module 7: Legal and Agreements\n\n* MoU (Memorandum of Understanding)\n* SLA (Service Level Agreement)\n* Contract Drafting Basics\n* Protecting Yourself in Client Work\n\n---\n\n# Module 8: Delivery and Client Handling\n\n* Kick-Off Meetings\n* Handling Problems During Projects\n* Managing Expectations\n* Conflict Resolution\n\n---\n\n# Final Section\n\n🎉 Congratulations — You’re Ready\n\n---\n\n## Learning Outcomes\n\nBy the end of this course, you will be able to:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 743,
+      "prev_keywords": [
+        "module",
+        "client",
+        "work",
+        "clients",
+        "course"
+      ],
+      "keywords": [
+        "module",
+        "handling",
+        "basics",
+        "agile",
+        "methodology"
+      ]
+    }
+  },
+  {
+    "id": "a1aaccf4-f460-4957-91fd-289a9d9600bb",
+    "chapter": "---",
+    "source": "Course_12- Soft Skills for Freelance and Client Work.md",
+    "title": "# Course 12: Soft Skills for Freelance and Client Work",
+    "doc_type": "notes",
+    "text": "---\n\n## Learning Outcomes\n\nBy the end of this course, you will be able to:\n\n* Get and manage freelance clients effectively\n* Communicate clearly and professionally\n* Write strong proposals and close deals\n* Price and scope projects correctly\n* Work with Agile and Waterfall methodologies\n* Handle contracts, SLAs, and legal basics\n* Manage real client projects from start to finish",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 381,
+      "prev_keywords": [
+        "module",
+        "handling",
+        "basics",
+        "agile",
+        "methodology"
+      ],
+      "keywords": [
+        "manage",
+        "projects",
+        "learning",
+        "outcomes",
+        "end"
+      ]
+    }
+  },
+  {
+    "id": "8562347e-8e16-414d-9a70-0837b3ea73c7",
+    "chapter": "# Course 13: Interview Questions Bank",
+    "source": "Course_13-Interview Questions Bank.md",
+    "title": "# Course 13: Interview Questions Bank",
+    "doc_type": "notes",
+    "text": "# Course 13: Interview Questions Bank\n\n## Overview\n\nStructured question bank covering core AI/ML, GenAI, MLOps, and interview preparation topics.\n\n---\n\n# Module 1: Machine Learning\n\n* Supervised vs Unsupervised Learning\n* Bias vs Variance\n* Overfitting and Underfitting\n* Feature Engineering\n* Model Evaluation Metrics\n* Classic ML Algorithms (Regression, SVM, Trees, KNN)\n\n---\n\n# Module 2: Deep Learning\n\n* Neural Networks Fundamentals\n* Backpropagation\n* Activation Functions\n* Optimization (SGD, Adam)\n* CNNs and RNNs\n* Transformers Basics\n\n---\n\n# Module 3: Generative AI\n\n* LLM Fundamentals\n* Prompt Engineering Basics\n* RAG (Retrieval Augmented Generation)\n* Fine-tuning vs Prompting\n* Tokenization and Embeddings\n* Evaluation of LLMs\n\n---\n\n# Module 4: Multimodal GenAI",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 774,
+      "prev_keywords": null,
+      "keywords": [
+        "module",
+        "learning",
+        "vs",
+        "interview",
+        "bank"
+      ]
+    }
+  },
+  {
+    "id": "fd7201d1-fc05-45e7-87c7-5d070f8870e6",
+    "chapter": "---",
+    "source": "Course_13-Interview Questions Bank.md",
+    "title": "# Course 13: Interview Questions Bank",
+    "doc_type": "notes",
+    "text": "---\n\n# Module 4: Multimodal GenAI\n\n* Vision + Language Models\n* Image Generation Models\n* Diffusion Models Basics\n* VLM Architectures\n* Real-world Multimodal Applications\n\n---\n\n# Module 5: MLOps\n\n* ML Pipeline Architecture\n* Model Deployment Strategies\n* CI/CD for ML\n* Docker for ML Systems\n* Monitoring and Logging\n* Model Versioning\n\n---\n\n# Module 6: Exercises\n\n* Coding Exercises (ML + DL)\n* Model Implementation Tasks\n* Debugging ML Pipelines\n* Case Study Problems\n* System Design Questions\n\n---\n\n# Module 7: GPT Prompt Engineering\n\n* Prompt Design Patterns\n* Role-based Prompting\n* Chain-of-Thought Prompting\n* Few-shot vs Zero-shot\n* Prompt Optimization Techniques\n\n---\n\n# Module 8: HR Interview Preparation",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 714,
+      "prev_keywords": [
+        "module",
+        "learning",
+        "vs",
+        "interview",
+        "bank"
+      ],
+      "keywords": [
+        "module",
+        "ml",
+        "models",
+        "model",
+        "prompt"
+      ]
+    }
+  },
+  {
+    "id": "d30cf1c7-e77b-48e6-b54a-211a13b08b55",
+    "chapter": "---",
+    "source": "Course_13-Interview Questions Bank.md",
+    "title": "# Course 13: Interview Questions Bank",
+    "doc_type": "notes",
+    "text": "---\n\n# Module 8: HR Interview Preparation\n\n* Self Introduction\n* Project Explanation\n* Strengths and Weaknesses\n* Behavioral Questions\n* Salary Negotiation\n* Career Storytelling\n\n---\n\n## Outcome\n\nBy the end of this bank, you will be able to:\n\n* Answer ML, DL, and GenAI interview questions confidently\n* Design and explain end-to-end AI systems\n* Handle technical and HR rounds effectively\n* Solve real-world ML system problems",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 427,
+      "prev_keywords": [
+        "module",
+        "ml",
+        "models",
+        "model",
+        "prompt"
+      ],
+      "keywords": [
+        "hr",
+        "interview",
+        "questions",
+        "ml",
+        "module"
+      ]
+    }
+  },
+  {
+    "id": "cdff0fa1-fbe7-4991-afef-268efbd90de4",
+    "chapter": "### Amazon S3",
+    "source": "Course_14-Advanced MLOps & AWS Bootcamp.md",
+    "title": "# Course 14: Advanced MLOps & AWS Bootcamp",
+    "doc_type": "notes",
+    "text": "### Amazon S3\n- Introduction to S3\n- Buckets, objects, storage classes\n- Applications on S3\n\n### Amazon EC2\n- Introduction to EC2\n- Launching instances\n- Connect and deploy on EC2\n\n### CI/CD for Docker on EC2\n- Docker deployment pipelines\n- Automated builds and deployment\n\n### Exercise\n- Hands-on AWS deployment practice\n\n### Elastic IP and Cleanup\n- Elastic IP management\n- Resource cleanup best practices\n\n---\n\n## Week 5 - AWS Services\n\n### Amazon RDS\n- Database on AWS\n- Setup and configuration\n\n### AWS Lambda\n- Introduction to Lambda functions\n- Lambda roles and syntax\n- Creating custom Lambda functions\n- Using Python packages inside Lambda\n\n### Cleanup Section for Lambda\n- Managing and cleaning Lambda resources\n\n### Exercise\n- Hands-on serverless deployment tasks\n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 1,
+      "chunk_length": 779,
+      "prev_keywords": null,
+      "keywords": [
+        "lambda",
+        "ec2",
+        "deployment",
+        "aws",
+        "amazon"
+      ]
+    }
+  },
+  {
+    "id": "5abf3d9e-25d9-4c40-b4a4-e362986a62cd",
+    "chapter": "### Exercise",
+    "source": "Course_14-Advanced MLOps & AWS Bootcamp.md",
+    "title": "# Course 14: Advanced MLOps & AWS Bootcamp",
+    "doc_type": "notes",
+    "text": "### Exercise\n- Hands-on serverless deployment tasks\n\n---\n\n## Week 6 - Advanced AWS\n\n### Amazon SageMaker\n- What, when, and why to use SageMaker\n- Running notebooks in SageMaker\n- Cleanup practices\n\n### AWS Bedrock\n- Introduction to Bedrock\n- Foundation models overview\n- Use cases in GenAI applications\n\n### EC2 Deployment (Advanced)\n- Deploying ML applications on EC2",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 368,
+      "prev_keywords": [
+        "lambda",
+        "ec2",
+        "deployment",
+        "aws",
+        "amazon"
+      ],
+      "keywords": [
+        "sagemaker",
+        "deployment",
+        "advanced",
+        "aws",
+        "use"
+      ]
+    }
+  },
+  {
+    "id": "f26e0bcb-de3a-4e74-8867-c985f45ea52d",
+    "chapter": "# Course 15: Personal Branding & Online Presence Course",
+    "source": "Course_15-Personal Branding & Online Presence Course.md",
+    "title": "# Course 15: Personal Branding & Online Presence Course",
+    "doc_type": "notes",
+    "text": "# Course 15: Personal Branding & Online Presence Course\n\n## 1. Introduction\n- Overview of the course  \n- Why online presence matters in tech and careers  \n\n---\n\n## 2. Online Presence (100%)\n- What it means to exist professionally online  \n- Key platforms and why they matter  \n\n---\n\n## 3. Self Branding Fundamentals\n- What is Self Branding?  \n- How to build your Personal Brand (step-by-step)  \n- What self-branding is NOT (common mistakes and confusion)  \n\n---\n\n## 4. LinkedIn\n- Setting up a strong LinkedIn profile  \n- Optimizing headline, about section, and experience  \n- Building network and visibility  \n\n---\n\n## 5. GitHub\n- Why GitHub matters for developers  \n- Building your GitHub profile from scratch  \n- The correct GitHub repository structure  \n- How to present projects properly  \n\n---",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 798,
+      "prev_keywords": null,
+      "keywords": [
+        "online",
+        "github",
+        "course",
+        "branding",
+        "presence"
+      ]
+    }
+  },
+  {
+    "id": "5c46cf99-b78a-4587-b636-8860480b91e4",
+    "chapter": "---",
+    "source": "Course_15-Personal Branding & Online Presence Course.md",
+    "title": "# Course 15: Personal Branding & Online Presence Course",
+    "doc_type": "notes",
+    "text": "---\n\n## 6. Portfolio Building\n- What makes a strong portfolio  \n- What projects to include  \n- How to structure and present your work",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 133,
+      "prev_keywords": [
+        "online",
+        "github",
+        "course",
+        "branding",
+        "presence"
+      ],
+      "keywords": [
+        "portfolio",
+        "building",
+        "makes",
+        "strong",
+        "projects"
+      ]
+    }
+  },
+  {
+    "id": "742cb302-9002-41e0-b20e-8978431715fb",
+    "chapter": "# Course 1: Machine Learning Basics",
+    "source": "Course_1_Machine_Learning_Basics.md",
+    "title": "# Course 1: Machine Learning Basics",
+    "doc_type": "notes",
+    "text": "# Course 1: Machine Learning Basics\n\n## Supervised Learning\n- What is Supervised Learning\n- Algorithms in Supervised Learning\n- Regression Algorithm\n- Regression Algorithm (Part 2)\n\n## Unsupervised Learning\n- What is Unsupervised Learning\n- Clustering Algorithms and Business Use Cases\n- Supervised vs Unsupervised\n- Cost Function\n- Gradient Descent\n- Gradient Descent Types\n- Semi & Self-Supervised Learning (Bonus)",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 416,
+      "prev_keywords": null,
+      "keywords": [
+        "learning",
+        "supervised",
+        "unsupervised",
+        "algorithms",
+        "regression"
+      ]
+    }
+  },
+  {
+    "id": "db67418d-340f-4a76-905e-ed7dbf088264",
+    "chapter": "# Course 2: ML Basics Practice Python",
+    "source": "Course_2_ML_Basics_Practice_Python.md",
+    "title": "# Course 2: ML Basics Practice Python",
+    "doc_type": "notes",
+    "text": "# Course 2: ML Basics Practice Python\n\n## NumPy\n- Introduction\n- Basics\n- Special Cases\n- Advanced\n\n## Matplotlib\n- Introduction\n- Basics\n- Plot Types\n\n## Pandas\n- Introduction\n- Basics\n- Practice\n\n## Scikit-Learn\n- Basics\n- End-to-End Workflow\n- Classification Project\n- Evaluation\n- Metrics & Overfitting\n- Hyperparameter Tuning\n- Regression & Data Cleaning (Car Sales Project)\n\n\n\nGithub\nExercises Explanation\nThe End! (Happy End!)\nProject and Certificate\nProject and Certificate\n\nSince this is the first technical course, the project will be made easy!\n\nJust submit the Github Repository for any exercise from the exercises list!\n\n\n\nResources",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 645,
+      "prev_keywords": null,
+      "keywords": [
+        "basics",
+        "project",
+        "introduction",
+        "course",
+        "practice"
+      ]
+    }
+  },
+  {
+    "id": "c7f62283-8cbf-448c-92eb-c4367bea88ed",
+    "chapter": "# Course 3: Unsupervised Learning Theory",
+    "source": "Course_3_Unsupervised_Learning_Theory.md",
+    "title": "# Course 3: Unsupervised Learning Theory",
+    "doc_type": "notes",
+    "text": "# Course 3: Unsupervised Learning Theory\n\n## Core Concepts\n- Introduction\n- How it works\n- Supervised vs Unsupervised\n\n## Clustering\n- K-Means Clustering\n- Math behind K-Means\n- Inertia (Cost Function)\n- Elbow Method\n- Hierarchical Clustering\n\n## Dimensionality Reduction\n- PCA\n\n## Recommender Systems\n- Types & Math\n\n## EDA\n- Types\n- Outliers Detection & Handling",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 364,
+      "prev_keywords": null,
+      "keywords": [
+        "clustering",
+        "unsupervised",
+        "math",
+        "types",
+        "course"
+      ]
+    }
+  },
+  {
+    "id": "f60ba431-1dc2-4db1-94d9-2af2f667c329",
+    "chapter": "# Course 4: Unsupervised Practice",
+    "source": "Course_4_Unsupervised_Practice.md",
+    "title": "# Course 4: Unsupervised Practice",
+    "doc_type": "notes",
+    "text": "# Course 4: Unsupervised Practice\n\n## Clustering Projects\n- Customer Segmentation\n- Data Exploration\n- Manual K-Means Steps\n- Scikit-Learn K-Means\n- Elbow Method & Silhouette Score\n\n## Recommendation Systems\n- Collaborative Filtering (Movies)\n\n## NLP Clustering\n- News Clustering\n- TF-IDF\n- Model Comparison\n\n## Advanced\n- PCA\n- DBSCAN\n- Feature Engineering\n- Anomaly Detection Project",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 385,
+      "prev_keywords": null,
+      "keywords": [
+        "clustering",
+        "course",
+        "4",
+        "unsupervised",
+        "practice"
+      ]
+    }
+  },
+  {
+    "id": "940e22a6-9e0d-463a-9fb5-6cc03609ca17",
+    "chapter": "# Course 5: Deep Learning",
+    "source": "Course_5_Deep_Learning.md",
+    "title": "# Course 5: Deep Learning",
+    "doc_type": "notes",
+    "text": "# Course 5: Deep Learning\n\n## Foundations\n- What is Deep Learning\n- Mathematical Foundations\n\n## Neural Networks\n- Perceptron\n- Activation Functions\n- Architectures\n- Overfitting vs Underfitting\n\n## TensorFlow\n- Basics\n- Keras\n- CNNs\n- Feedforward Networks\n\n## PyTorch\n- Overview\n- Medical Imaging Project (Chest X-Ray)",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 319,
+      "prev_keywords": null,
+      "keywords": [
+        "deep",
+        "learning",
+        "foundations",
+        "networks",
+        "course"
+      ]
+    }
+  },
+  {
+    "id": "c86c2982-e6f7-4b56-b10c-1aee8f7c9a8e",
+    "chapter": "# Course 6: Computer Vision",
+    "source": "Course_6_Computer_Vision.md",
+    "title": "# Course 6: Computer Vision",
+    "doc_type": "notes",
+    "text": "# Course 6: Computer Vision\n\n## Fundamentals\n- Image Representation\n- Filters\n- Edge Detection\n\n## Feature Detection\n- Matching Techniques\n\n## Object Detection\n- Haar Cascades\n- YOLO\n- Real-time Detection\n\n## Advanced\n- Segmentation\n- Transfer Learning\n- Fine-tuning",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 266,
+      "prev_keywords": null,
+      "keywords": [
+        "detection",
+        "course",
+        "6",
+        "computer",
+        "vision"
+      ]
+    }
+  },
+  {
+    "id": "243a350c-f4ab-449c-acbe-b39ee53ec0f5",
+    "chapter": "# Course 7: LLMs Intro",
+    "source": "Course_7_LLMs_Intro.md",
+    "title": "# Course 7: LLMs Intro",
+    "doc_type": "notes",
+    "text": "# Course 7: LLMs Intro\n\n## Foundations\n- What are LLMs\n- History\n- Transformers\n- Embeddings\n\n## Training Concepts\n- RLHF\n- Foundation Models\n\n## Tools\n- Hugging Face\n- LangChain\n- Ollama\n\n## RAG\n- Vector DB\n- Chatbots\n- Retrieval-Augmented Generation",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 251,
+      "prev_keywords": null,
+      "keywords": [
+        "llms",
+        "course",
+        "7",
+        "intro",
+        "foundations"
+      ]
+    }
+  },
+  {
+    "id": "59f010df-1a00-4ff4-9619-ede8be312632",
+    "chapter": "# Course 8: Advanced GenAI",
+    "source": "Course_8_Advanced_GenAI.md",
+    "title": "# Course 8: Advanced GenAI",
+    "doc_type": "notes",
+    "text": "# Course 8: Advanced GenAI\n\n## Tokenization\n- Types\n- Comparison\n\n## Embeddings\n- Static vs Contextual\n- Sentence Embeddings\n\n## Attention\n- Self Attention\n- Multi Head Attention\n- Causal Attention\n- Cross Attention\n\n## Build LLM\n- Tool Calling\n- Multi-Agent Systems\n\n## Projects\n- GPT-style Model\n- HR Assistant\n- Calendar Assistant",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 333,
+      "prev_keywords": null,
+      "keywords": [
+        "attention",
+        "embeddings",
+        "assistant",
+        "course",
+        "8"
+      ]
+    }
+  },
+  {
+    "id": "1102b2dd-abd0-4e1d-b10b-d25620a6a5f4",
+    "chapter": "# Course 9: software engeering",
+    "source": "Course_9_software engeering.md",
+    "title": "# Course 9: software engeering",
+    "doc_type": "notes",
+    "text": "# Course 9: software engeering\n\n## Course Introduction\n\n* Course Overview\n* Expected Outcomes\n* Project Demonstration\n* Getting Started\n\n---\n\n# Chapter 1: Python for Production\n\n* Why Python for Production\n* Logging and Exception Handling\n* Project Structure and Model Training\n* Implementing Logging\n* Exception Management\n\n---\n\n# Chapter 2: APIs\n\n* API Fundamentals\n* FastAPI Overview\n* Building APIs with FastAPI\n* CRUD Operations\n* Machine Learning Endpoints\n\n---\n\n# Chapter 3: Databases in AI Applications\n\n* Role of Databases in AI Systems\n* Types of Databases\n* SQLAlchemy Introduction\n* Database Migrations\n* PostgreSQL Setup\n* Connecting to Databases with SQLAlchemy\n* Advanced SQLAlchemy\n\n---\n\n# Chapter 4: Docker",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 723,
+      "prev_keywords": null,
+      "keywords": [
+        "chapter",
+        "databases",
+        "course",
+        "sqlalchemy",
+        "introduction"
+      ]
+    }
+  },
+  {
+    "id": "182eb0e6-59f7-4231-8855-4a545c6c4c9d",
+    "chapter": "---",
+    "source": "Course_9_software engeering.md",
+    "title": "# Course 9: software engeering",
+    "doc_type": "notes",
+    "text": "---\n\n# Chapter 4: Docker\n\n* Why Containerization Matters\n* Docker Fundamentals\n* Installing Docker\n* Creating Dockerfiles\n* Docker Compose\n\n---\n\n# Chapter 5: AI Model Integration\n\n* Data Preprocessing and Postprocessing\n* Building a Sentiment Analysis Pipeline\n* Integrating AI Models with APIs\n* Database Migrations for AI Applications\n\n---\n\n# Chapter 6: Testing and Validation\n\n* Testing Fundamentals\n* Unit Testing\n* Integration Testing\n* Validation Strategies\n\n---\n\n# Chapter 7: CI/CD\n\n* Continuous Integration\n* Continuous Deployment\n* Automated Testing Pipelines\n* Deployment Workflows\n\n---\n\n# Chapter 8: Deployment\n\n* Course Recap\n* Deploying the Application\n* Production Best Practices\n\n---\n\n## Learning Outcomes\n\nBy the end of this course, you will be able to:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 769,
+      "prev_keywords": [
+        "chapter",
+        "databases",
+        "course",
+        "sqlalchemy",
+        "introduction"
+      ],
+      "keywords": [
+        "chapter",
+        "testing",
+        "docker",
+        "ai",
+        "integration"
+      ]
+    }
+  },
+  {
+    "id": "32af7040-0dbf-4512-b85c-d7f3162e4fe7",
+    "chapter": "---",
+    "source": "Course_9_software engeering.md",
+    "title": "# Course 9: software engeering",
+    "doc_type": "notes",
+    "text": "---\n\n## Learning Outcomes\n\nBy the end of this course, you will be able to:\n\n* Structure production-ready Python projects\n* Build REST APIs using FastAPI\n* Integrate machine learning models into applications\n* Work with PostgreSQL and SQLAlchemy\n* Manage database migrations\n* Containerize applications using Docker\n* Implement testing strategies\n* Build CI/CD pipelines\n* Deploy AI applications to production environments",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 421,
+      "prev_keywords": [
+        "chapter",
+        "testing",
+        "docker",
+        "ai",
+        "integration"
+      ],
+      "keywords": [
+        "applications",
+        "learning",
+        "build",
+        "using",
+        "outcomes"
+      ]
+    }
+  },
+  {
+    "id": "35040282-b8e7-4636-8efb-b87be0cb5edd",
+    "chapter": "CURRICULUM VITAE",
+    "source": "Jihad_Lamaa_CV_2026.doc",
+    "title": "CURRICULUM VITAE",
+    "doc_type": "profile",
+    "text": "CURRICULUM VITAE\nJihad Lamaa\nChiah, Beirut, Lebanon | +961-70-817392 | ji190579@gmail.com\nDate of Birth: May 19, 1979\nMarital Status: Single\n\nExperience Summary\n\nSoftware Engineer with 20 years of experience in core banking, retail, and trade finance technology. Expertise spans software enhancements, system modernization, and architectural transformation.\n- Enhancements & Maintenance: Enhanced and maintained core banking modules (PowerBuilder desktop applications) on Oracle and Sybase environments.\n- Modernization & Migration: Converted retail and trade finance applications from PowerBuilder to Java web applications using the MVC 2 pattern (Struts2, Spring, MyBatis3).\n- Architecture Transformation: Initiated and led the transformation of trade finance applications from Java web architecture to a microservices architecture.\n\nPersonal Development\n\nOver the past year, I have been actively learning AI fundamentals through theory and practice. I joined the AI Engineers Program by Lara Wehbi (https://www.skool.com/theaiengineers), covering machine learning, deep learning, and generative AI. I am currently developing a customized chatbot for inquiries using RAG (Retrieval-Augmented Generation) technology. See my AI project on GitHub: https://github.com/ji190579/rag_llm_notes.git\n\nTechnical Summary",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 1311,
+      "prev_keywords": null,
+      "keywords": [
+        "applications",
+        "ai",
+        "trade",
+        "finance",
+        "transformation"
+      ]
+    }
+  },
+  {
+    "id": "8f5eadfc-e7f9-4caa-84dc-3b439a51ad4c",
+    "chapter": "Technical Summary",
+    "source": "Jihad_Lamaa_CV_2026.doc",
+    "title": "CURRICULUM VITAE",
+    "doc_type": "profile",
+    "text": "Technical Summary\n\n- Technologies & Industries: JEE, PowerBuilder, PowerScript, Spring Boot, Microservices\n- Database Environments: Oracle (PL/SQL), Sybase 15 (queries & stored procedures)\n- Web/Application Servers: Tomcat\n- Programming Languages: Java/JEE, HTML, JSP, Ajax, JavaScript, CSS, XML, PowerScript (PowerBuilder), Python\n- Frameworks: Struts2 (MVC), Spring, Spring Boot\n- ORM: MyBatis3\n- Operating Systems: Windows\n- Version Control: Microsoft Visual SourceSafe (VSS), Subversion (SVN), Git\n\nCareer Shift Summary\n\nJune 2006 – 2021: Assistant Principal Software Engineer, Path Solutions, Mansourieh, Lebanon (http://www.path-solutions.com)\nJune 2021 – Present: Principal Software Engineer, Azentio (formerly Path Solutions), Mansourieh, Lebanon (https://www.azentio.com)\n\nProfessional Experience\n\n\nSoftware Engineer, Path Solutions\n\nJune 2006 – April 2011\nProject: Desktop Core Banking Applications\n- Designed, developed, and maintained PowerBuilder desktop applications for over 80 clients, covering journal vouchers, bank reconciliation, statements, points/interest, trial balance, and end-of-day processing.\n- Responsible for designing objects and functional elements, developing and modifying source code for new applications and modifications.\n- Fixed bugs and developed enhancements in both application code and stored procedures.\n- Involved in all phases of SDLC: requirement gathering, design, analysis, and coding.\n\nSenior Java Software Engineer, Path Solutions",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 1480,
+      "prev_keywords": [
+        "applications",
+        "ai",
+        "trade",
+        "finance",
+        "transformation"
+      ],
+      "keywords": [
+        "software",
+        "engineer",
+        "path",
+        "solutions",
+        "powerbuilder"
+      ]
+    }
+  },
+  {
+    "id": "1f3f388b-d0e6-4cd6-81c0-1ed84706cc88",
+    "chapter": "Technical Summary",
+    "source": "Jihad_Lamaa_CV_2026.doc",
+    "title": "CURRICULUM VITAE",
+    "doc_type": "profile",
+    "text": "Senior Java Software Engineer, Path Solutions\n\n2011 – 2014\nProject: Web Retail Banking Applications\n- Converted and refactored parts in in Banking Retail Applications (Front Office Management, Account Creation, Journal Voucher) from PowerBuilder to Java Client-Server (JEE), applying MVC using Struts2, Spring, and MyBatis3.\n- Developed scripts and PL/SQL programs for data integration.\n- Implemented server-side tasks in Java, integrating Spring DAO and MyBatis, and developing Struts action classes.\n\nAssociate Principal Java Software Engineer, Path Solutions\n\nSeptember 2014 – 2021\nProject: Web and Desktop Trade Finance Applications\n- Led transformation of Trade Finance applications (Letter of Credit, Guarantee, Bills for Collection) from PowerBuilder to Java client-server (JEE), applying MVC with Struts2, Spring, and MyBatis3.\n- Created business scenarios to ensure successful migration from PowerBuilder to Java web apps.\n- Provided training, conducted code reviews, and supported team members.\n- Aligned business requirements with development teams; analyzed, documented, and planned technical solutions.\n- Resolved production and critical issues as part of the escalation team.\n- Participated in estimation sessions to align technical and QA expectations.\n\nPrincipal Java Software Engineer, Azentio (formerly Path Solutions)",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 1336,
+      "prev_keywords": [
+        "software",
+        "engineer",
+        "path",
+        "solutions",
+        "powerbuilder"
+      ],
+      "keywords": [
+        "java",
+        "solutions",
+        "applications",
+        "software",
+        "engineer"
+      ]
+    }
+  },
+  {
+    "id": "0cb1af10-cedb-4095-8280-f7e5cca3d2f6",
+    "chapter": "Technical Summary",
+    "source": "Jihad_Lamaa_CV_2026.doc",
+    "title": "CURRICULUM VITAE",
+    "doc_type": "profile",
+    "text": "Principal Java Software Engineer, Azentio (formerly Path Solutions)\n\nSeptember 2021 – Present\nProject: Web Trade Finance Application\n- Lead analysis, implementation, and development of the strategic roadmap for the Trade Finance application as Product Manager/Owner.\n- Migrated SWIFT payment messages (MT103, MT202) to ISO 20022 (MX).\n- Initiated transformation of trade finance application from Struts2-based Java web app to microservices architecture, including API Gateway, Eureka, Zipkin, Kafka, Keycloak, JFrog, and deployment with Podman/Docker.\n\nEducation\n\n1999 – 2003: B.S. in Business Computer, Lebanese University\n1999: Lebanese Baccalaureate in Experimental Science, Citadel High School (French-educated)\n\nAdditional Information\n\nPersonal Skills: Fast learner, hard worker, initiative, proactive\nInterests: Music, Sports, Poetry\nReferences: Available upon request",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 3,
+      "chunk_length": 874,
+      "prev_keywords": [
+        "java",
+        "solutions",
+        "applications",
+        "software",
+        "engineer"
+      ],
+      "keywords": [
+        "trade",
+        "finance",
+        "application",
+        "java",
+        "web"
+      ]
+    }
+  }
+]

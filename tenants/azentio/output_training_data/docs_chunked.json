@@ -1,0 +1,920 @@
+[
+  {
+    "id": "f9b00d6c-78af-4ee1-8ce4-05f7207c73c1",
+    "chapter": "What Is Maven",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "What Is Maven\n\nMaven is a build and project management tool that is generally used in frameworks built in Java. It is developed by Apache Software Foundation.\nMaven is controlled by the Project Object Model (pom) file. While working with frameworks built-in Java, we often have to deal with a number of dependencies.\nBefore Maven came into the picture, all dependencies, that are nothing but JAR files had to be added to our framework manually. Also, we needed to take care of the software upgrade in our project.\nMaven ensures that project JARs and libraries are downloaded automatically. Only the information relating to the versions of the software and type of dependencies need to be described in the pom .xml file.\n\nWhy Use Maven",
+    "metadata": {
+      "summary": "",
+      "prev_summary": null,
+      "chunk_index": 0,
+      "chunk_length": 734,
+      "prev_keywords": null,
+      "keywords": [
+        "maven",
+        "project",
+        "software",
+        "dependencies",
+        "frameworks"
+      ]
+    }
+  },
+  {
+    "id": "0a4cb8c1-0e17-497d-a7d4-43bd098920cc",
+    "chapter": "Maven performs the below activities",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Maven performs the below activities:\nRepository to get the dependencies.\nHaving a similar folder structure across the organization.\nIntegration with Continuous Integration tools like Jenkins.\nPlugins for test execution.\nIt provides information on how the software/ project is being developed.\nThe build process is made simpler and consistent.\nProvides guidelines for the best practices to be followed in the project.\nEnhances project performance.\nEasy to move to new attributes of Maven.\nIntegration with version control tools like Git.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 1,
+      "chunk_length": 536,
+      "prev_keywords": [
+        "maven",
+        "project",
+        "software",
+        "dependencies",
+        "frameworks"
+      ],
+      "keywords": [
+        "integration",
+        "project",
+        "maven",
+        "tools",
+        "like"
+      ]
+    }
+  },
+  {
+    "id": "c5d72c88-ac18-46f6-bbac-755937d678f7",
+    "chapter": "Easy to move to new attributes of Maven.",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Easy to move to new attributes of Maven.\nIntegration with version control tools like Git.\nMaven takes care of processes like releases, distribution, reporting, builds, documentation, and SCMs. Maven connects to the Maven Central repository and loads them in local. Some of the IDEs that support project development with Maven are NetBeans, Eclipse, IntelliJ, and so on.\nMaven should be used in our projects in the following scenarios:\nIf the project requires a large number of dependencies.\nIf the version of the dependencies needs frequent up-gradation.\nIf the project needs to have quick documentation, compiling and packaging of the source code into JAR or ZIP files.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 2,
+      "chunk_length": 670,
+      "prev_keywords": [
+        "integration",
+        "project",
+        "maven",
+        "tools",
+        "like"
+      ],
+      "keywords": [
+        "maven",
+        "project",
+        "version",
+        "like",
+        "documentation"
+      ]
+    }
+  },
+  {
+    "id": "0fa6e7c4-d4fc-4cb0-b212-995c20ada141",
+    "chapter": "Operational Steps of Maven",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Operational Steps of Maven\n\nFirst Maven goes through the POM .xml file.\nThe dependencies are loaded into the local repository.\nGoes through the built-in life cycles of Maven as shown below:\nDefault: Takes care of the deployment of the project.\nClean: Removes any errors, thereby cleans the project, and removes the artifact produced from the previous process of the build.\nSite: Takes care of the documentation of the project.\nEach built-in cycles have several phases. For example, default has twenty-three phases while clean and site has three and four phases respectively.\nEach Maven cycle goes through several stages where a particular stage has a specific objective.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 3,
+      "chunk_length": 670,
+      "prev_keywords": [
+        "maven",
+        "project",
+        "version",
+        "like",
+        "documentation"
+      ],
+      "keywords": [
+        "maven",
+        "goes",
+        "project",
+        "phases",
+        "cycles"
+      ]
+    }
+  },
+  {
+    "id": "84179c74-9256-4239-b1b0-01a3b69bdbdd",
+    "chapter": "A goal has the following syntax: Plugin: goal",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "the phases are run in the following way: mvn <name of phase>, for example, mvn validate\nA group of Maven goals makes up a phase. Just like phases of Maven, each goal has to be run in a specific order.\nA goal has the following syntax: Plugin: goal\n\nCore Concepts in Maven\n\n\nPOM Files",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 4,
+      "chunk_length": 282,
+      "prev_keywords": [
+        "maven",
+        "goes",
+        "project",
+        "phases",
+        "cycles"
+      ],
+      "keywords": [
+        "maven",
+        "goal",
+        "phases",
+        "run",
+        "following"
+      ]
+    }
+  },
+  {
+    "id": "276f3911-cbbe-43e5-af04-b7807b16f456",
+    "chapter": "Maven is centered on the concept of POM files (Project Object Model).",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Maven is centered on the concept of POM files (Project Object Model).\nIt is fundamental unit of work in Maven. It is an XML file that resides in the base directory of the project as pom.xml.\nThe POM contains information about the project and various configuration detail used by Maven to build the project(s).\nPOM also contains the goals and plugins. While executing a task or goal, Maven looks for the POM in the current directory. It reads the POM, gets the needed configuration information, and then executes the goal. Some of the configuration that can be specified in the POM are following:\nproject dependencies\nPlugins\ngoals\nbuild profiles\nproject version\ndevelopers\nmailing list\nIt should be noted that there should be a single POM file for each project.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 5,
+      "chunk_length": 761,
+      "prev_keywords": [
+        "maven",
+        "goal",
+        "phases",
+        "run",
+        "following"
+      ],
+      "keywords": [
+        "pom",
+        "project",
+        "maven",
+        "configuration",
+        "file"
+      ]
+    }
+  },
+  {
+    "id": "a7aec81f-54d5-46a9-9faf-403ebb84af61",
+    "chapter": "developers",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "developers\nmailing list\nIt should be noted that there should be a single POM file for each project.\nAll POM files require the project element and three mandatory fields: groupId, artifactId, version.\nProjects notation in repository is groupId:artifactId:version.\nMinimal requirements for a POM",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 6,
+      "chunk_length": 293,
+      "prev_keywords": [
+        "pom",
+        "project",
+        "maven",
+        "configuration",
+        "file"
+      ],
+      "keywords": [
+        "pom",
+        "project",
+        "groupid",
+        "artifactid",
+        "version"
+      ]
+    }
+  },
+  {
+    "id": "c95c5c95-8adf-43a8-b066-a3df3d81ad5b",
+    "chapter": "Super POM",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Super POM\n\nAll Maven POM files inherit from a super POM. If no super POM is specified, the POM file inherits from the base POM.\nYou can make a POM file explicitly inherit from another POM file. That way you can change the settings across all inheriting POM's via their common super POM. You specify the super POM at the top of a POM file like this:\nAn inheriting POM file may override settings from a super POM. Just specify new settings in the inheriting POM file.\nEffective POM\nWith all this POM inheritance it may be hard to know what the total POM file looks like when Maven executes. The total POM file (result of all inheritance) is called the effective POM.\n\nBuild Life Cycles, Phases and Goals",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 7,
+      "chunk_length": 701,
+      "prev_keywords": [
+        "pom",
+        "project",
+        "groupid",
+        "artifactid",
+        "version"
+      ],
+      "keywords": [
+        "pom",
+        "file",
+        "super",
+        "settings",
+        "inheriting"
+      ]
+    }
+  },
+  {
+    "id": "13e3c181-9abb-472f-b509-6f1dac2be92d",
+    "chapter": "Super POM",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Goal is the single unit of task which does some real work. For example the compile goal (runs as mvn compiler:compile) which compiles the Java source. All goals are provided by plugins, either by default plugins or by user defined plugins (configured in pom file).\nPhase is a group of ordered goals or in other words: zero or more plugin goals are bound to a phase (either by default or by user). For example the compile phase (runs as \"mvn compile\") consists only compiler:compile goal (plugin). Running a phase basically runs the plugins bound with it.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 8,
+      "chunk_length": 554,
+      "prev_keywords": [
+        "pom",
+        "file",
+        "super",
+        "settings",
+        "inheriting"
+      ],
+      "keywords": [
+        "compile",
+        "plugins",
+        "phase",
+        "goal",
+        "runs"
+      ]
+    }
+  },
+  {
+    "id": "49c585f0-a9f5-45cb-9f37-e1772d45acca",
+    "chapter": "Super POM",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Build Lifecycle is a group of ordered phases. There are three built-in lifecycle: default, clean and site. Please see the list of phases attached with each lifecycle. Build lifecycle cannot be executed, they are conceptual. If we execute a phase, For example mvn compile, all phases up to and including that phase (i.e. validate >generate-sources> process-sources>generate-resources> process-resources> compile) will get executed. A phase with zero plugin goals does nothing.\nIf we execute phase 2 it will first run phase 1 (the two plugins bound to phase 1 will get executed) then phase 2 (the only one plugin goal bound with it will get executed).",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 9,
+      "chunk_length": 649,
+      "prev_keywords": [
+        "compile",
+        "plugins",
+        "phase",
+        "goal",
+        "runs"
+      ],
+      "keywords": [
+        "phase",
+        "lifecycle",
+        "executed",
+        "phases",
+        "get"
+      ]
+    }
+  },
+  {
+    "id": "1cf7a346-c39a-4b05-b305-1c1c33ce772c",
+    "chapter": "Goals to phase binding depends on packaging type",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "If we run last phase all preceding phases will get executed first. Generally speaking, if we want to run some phase (or even goal/plugin), all pre-required task will run first. Note Phase 3 does nothing cause no goals are bound to it. In maven default life-cycle too, there are number of phases which does nothing. They are actually kind of place holders for the users’ plugins or different packaging types to bind goals.\nGoals to phase binding depends on packaging type\nBased on the packaging of a project (jar, war, ear, etc), different maven goals will be bound to different phases of the maven lifecycle.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 10,
+      "chunk_length": 608,
+      "prev_keywords": [
+        "phase",
+        "lifecycle",
+        "executed",
+        "phases",
+        "get"
+      ],
+      "keywords": [
+        "phase",
+        "goals",
+        "run",
+        "phases",
+        "maven"
+      ]
+    }
+  },
+  {
+    "id": "3c0341d6-3465-4d0c-8c5e-381b805a470e",
+    "chapter": "Goals to phase binding depends on packaging type",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "One of the first goals Maven executes is to check the dependencies needed by your project. Dependencies are external JAR files (Java libraries) that your project uses. If the dependencies are not found in the local Maven repository, Maven downloads them from a central Maven repository and puts them in your local repository. The local repository is just a directory on your computer's hard disk. You can specify where the local repository should be located if you want to (I do). You can also specify which remote repository to use for downloading dependencies.\nUnless your project is small, your project may need external Java APIs or frameworks which are packaged in their own JAR files. These JAR files are needed on the classpath when you compile your project code.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 12,
+      "chunk_length": 770,
+      "prev_keywords": [
+        "phase",
+        "goals",
+        "run",
+        "phases",
+        "maven"
+      ],
+      "keywords": [
+        "repository",
+        "project",
+        "maven",
+        "dependencies",
+        "local"
+      ]
+    }
+  },
+  {
+    "id": "7fad41f8-f8dd-4673-bce5-c57becb01cac",
+    "chapter": "Goals to phase binding depends on packaging type",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Keeping your project up-to-date with the correct versions of these external JAR files can be a comprehensive task. Each external JAR may again also need other external JAR files etc. Downloading all these external dependencies (JAR files) recursively and making sure that the right versions are downloaded is cumbersome. Especially when your project grows big, and you get more and more external dependencies.\nLuckily, Maven has built-in dependency management. You specify in the POM file what external libraries your project depends on, and which version, and then Maven downloads them for you and puts them in your local Maven repository. If any of these external libraries need other libraries, then these other libraries are also downloaded into your local Maven repository.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 13,
+      "chunk_length": 778,
+      "prev_keywords": [
+        "repository",
+        "project",
+        "maven",
+        "dependencies",
+        "local"
+      ],
+      "keywords": [
+        "external",
+        "jar",
+        "maven",
+        "libraries",
+        "project"
+      ]
+    }
+  },
+  {
+    "id": "6c323a5a-f5e0-44fa-b13f-fb12df20cf0e",
+    "chapter": "Goals to phase binding depends on packaging type",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "You specify your project dependencies inside the dependencies element in the POM file. Here is an example:\nNotice the dependencies element in bold. Inside it are two dependency elements. Each dependency element describes an external dependency.\nEach dependency is described by its groupId, artifactId and version. You may remember that this is also how you identified your own project in the beginning of the POM file. The example above needs the org.jsoup group's jsoup artifact in version 1.7.1, and the junit group's junit artifact in version 4.8.1.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 14,
+      "chunk_length": 552,
+      "prev_keywords": [
+        "external",
+        "jar",
+        "maven",
+        "libraries",
+        "project"
+      ],
+      "keywords": [
+        "dependency",
+        "dependencies",
+        "element",
+        "version",
+        "project"
+      ]
+    }
+  },
+  {
+    "id": "cb76d5b4-c4e8-4d86-ba39-d2cc43e22a13",
+    "chapter": "Goals to phase binding depends on packaging type",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "When this POM file is executed by Maven, the two dependencies will be downloaded from a central Maven repository and put into your local Maven repository. If the dependencies are already found in your local repository, Maven will not download them. Only if the dependencies are missing will they be downloaded into your local repository.\nSometimes a given dependency is not available in the central Maven repository. You can then download the dependency yourself and put it into your local Maven repository. Remember to put it into a subdirectory structure matching the groupId, artifactId and version. Replace all dots (.) with / and separate the groupId, artifactId and version with / too. Then you have your subdirectory structure.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 15,
+      "chunk_length": 734,
+      "prev_keywords": [
+        "dependency",
+        "dependencies",
+        "element",
+        "version",
+        "project"
+      ],
+      "keywords": [
+        "maven",
+        "repository",
+        "local",
+        "dependencies",
+        "put"
+      ]
+    }
+  },
+  {
+    "id": "2d5c22e7-cb5c-4010-bc53-84ec30604676",
+    "chapter": "Snapshot Dependencies",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Snapshot Dependencies\n\nSnapshot dependencies are dependencies (JAR files) which are under development. Instead of constantly updating the version numbers to get the latest version, you can depend on a snapshot version of the project. Snapshot versions are always downloaded into your local repository for every build, even if a matching snapshot version is already located in your local repository. Always downloading the snapshot dependencies assures that you always have the latest version in your local repository, for every build.\nYou can tell Maven that your project is a snapshot version simply by appending -SNAPSHOT to the version number in the beginning of the POM (where you also set the groupId and artifactId). Here is a version element example: <version>1.0-SNAPSHOT</version>",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 16,
+      "chunk_length": 789,
+      "prev_keywords": [
+        "maven",
+        "repository",
+        "local",
+        "dependencies",
+        "put"
+      ],
+      "keywords": [
+        "version",
+        "snapshot",
+        "dependencies",
+        "always",
+        "local"
+      ]
+    }
+  },
+  {
+    "id": "a4e29431-40a5-47ec-9aa1-9a961f4c0d4c",
+    "chapter": "Dependencies Types",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Dependencies Types\n\nDirect Dependencies\nDirect dependencies are the ones that are explicitly included in the project.\nThese can be included in the project using <dependency> tags:\nTransitive Dependencies\nare dependencies required by our direct dependencies.\nRequired transitive dependencies are automatically included in our project by Maven.\n\nDependency Scopes",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 17,
+      "chunk_length": 361,
+      "prev_keywords": [
+        "version",
+        "snapshot",
+        "dependencies",
+        "always",
+        "local"
+      ],
+      "keywords": [
+        "dependencies",
+        "direct",
+        "included",
+        "project",
+        "dependency"
+      ]
+    }
+  },
+  {
+    "id": "55a39bca-269d-4dcb-8ddd-3402587a2e50",
+    "chapter": "Compile",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Dependency scopes can help to limit transitivity of the dependencies and they modify classpath for different built tasks. Maven has 6 default dependency scopes.\nCompile\nthis is the default scope when no other scope is provided.\nDependencies with this scope are available on the classpath of the project in all build tasks and they're propagated to the dependent projects.\nMore importantly, these dependencies are also transitive:\nProvided\nthis scope is used to mark dependencies that should be provided at runtime by JDK or a container.\nA good use case for this scope would be a web application deployed in some container, where the container already provides some libraries itself.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 18,
+      "chunk_length": 682,
+      "prev_keywords": [
+        "dependencies",
+        "direct",
+        "included",
+        "project",
+        "dependency"
+      ],
+      "keywords": [
+        "scope",
+        "dependencies",
+        "provided",
+        "container",
+        "dependency"
+      ]
+    }
+  },
+  {
+    "id": "a3a56127-53ff-412d-88cb-fa8c1ce21f8d",
+    "chapter": "Compile",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "For example, a web server that already provides the Servlet API at runtime, thus in our project, those dependencies can be defined with the provided scope:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 19,
+      "chunk_length": 155,
+      "prev_keywords": [
+        "scope",
+        "dependencies",
+        "provided",
+        "container",
+        "dependency"
+      ],
+      "keywords": [
+        "example",
+        "web",
+        "server",
+        "already",
+        "provides"
+      ]
+    }
+  },
+  {
+    "id": "56ea1c63-4eb2-49b9-a388-9c2e9f375072",
+    "chapter": "Runtime",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "The provided dependencies are available only at compile-time and in the test classpath of the project; what's more, they aren't transitive.\nRuntime\nthe dependencies with this scope are required at runtime, but they're not needed for compilation of the project code. Because of that, dependencies marked with the runtime scope will be present in runtime and test classpath, but they will be missing from compile classpath.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 20,
+      "chunk_length": 421,
+      "prev_keywords": [
+        "example",
+        "web",
+        "server",
+        "already",
+        "provides"
+      ],
+      "keywords": [
+        "runtime",
+        "dependencies",
+        "classpath",
+        "test",
+        "project"
+      ]
+    }
+  },
+  {
+    "id": "e3f602db-ed9d-42c4-957e-4381ce6f6579",
+    "chapter": "Test",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "A good example of dependencies that should use the runtime scope is a JDBC driver:\nTest\nthis scope is used to indicate that dependency isn't required at standard runtime of the application, but is used only for test purposes. Test dependencies aren't transitive and are only present for test and execution classpaths.\nThe standard use case for this scope is adding test library like JUnit to our application:\nSystem\nSystem scope is much similar to the provided scope. The main difference between those two scopes is that system requires us to directly point to specific jar on the system.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 21,
+      "chunk_length": 588,
+      "prev_keywords": [
+        "runtime",
+        "dependencies",
+        "classpath",
+        "test",
+        "project"
+      ],
+      "keywords": [
+        "scope",
+        "test",
+        "system",
+        "dependencies",
+        "use"
+      ]
+    }
+  },
+  {
+    "id": "d24dd2ae-cb51-4f36-9912-63059132ebbd",
+    "chapter": "Import",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "The important thing to remember is that building the project with system scope dependencies may fail on different machines if dependencies aren't present or are located in a different place than the one systemPath points to:\nImport\nthis scope was added in Maven 2.0.9 and it's only available for the dependency type pom. We're going to speak more about the type of the dependency in future articles.Import indicates that this dependency should be replaced with all effective dependencies declared in its POM:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 22,
+      "chunk_length": 508,
+      "prev_keywords": [
+        "scope",
+        "test",
+        "system",
+        "dependencies",
+        "use"
+      ],
+      "keywords": [
+        "dependencies",
+        "dependency",
+        "scope",
+        "different",
+        "type"
+      ]
+    }
+  },
+  {
+    "id": "6d9f9f1c-07d6-4e86-8074-616ef0f7dadd",
+    "chapter": "Repositories",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Repositories\n\nMaven repositories are directories of packaged JAR files with extra meta data. The meta data are POM files describing the projects each packaged JAR file belongs to, including what external dependencies each packaged JAR has. It is this meta data that enables Maven to download dependencies of your dependencies recursively, until the whole tree of dependencies is download and put into your local repository.\nMaven has three types of repository:\nLocal repository\nCentral repository\nRemote repository\nMaven searches these repositories for dependencies in the above sequence. First in the local repository, then in the central repository, and third in remote repositories if specified in the POM.\n\nLocal repository",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 23,
+      "chunk_length": 727,
+      "prev_keywords": [
+        "dependencies",
+        "dependency",
+        "scope",
+        "different",
+        "type"
+      ],
+      "keywords": [
+        "repository",
+        "dependencies",
+        "repositories",
+        "maven",
+        "local"
+      ]
+    }
+  },
+  {
+    "id": "dd731980-b51f-4150-aa6a-051bdc9d2037",
+    "chapter": "Repositories",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "A local repository is a directory on the developer's computer. This repository will contain all the dependencies Maven downloads. The same Maven repository is typically used for several different projects. Thus Maven only needs to download the dependencies once, even if multiple projects depends on them (e.g. Junit).\nYour own projects can also be built and installed in your local repository, using the mvn install command. That way your other projects can use the packaged JAR files of your own projects as external dependencies by specifying them as external dependencies inside their Maven POM files.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 24,
+      "chunk_length": 605,
+      "prev_keywords": [
+        "repository",
+        "dependencies",
+        "repositories",
+        "maven",
+        "local"
+      ],
+      "keywords": [
+        "projects",
+        "repository",
+        "dependencies",
+        "maven",
+        "local"
+      ]
+    }
+  },
+  {
+    "id": "58bcbd05-f62f-4f5a-8a17-c441dfb9e345",
+    "chapter": "Repositories",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "By default Maven puts your local repository inside your user home directory on your local computer. However, you can change the location of the local repository by setting the directory inside your Maven settings file. Your Maven settings file is also located in your user-home/.m2 directory and is called settings.xml. Here is how you specify another location for your local repository:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 25,
+      "chunk_length": 387,
+      "prev_keywords": [
+        "projects",
+        "repository",
+        "dependencies",
+        "maven",
+        "local"
+      ],
+      "keywords": [
+        "local",
+        "maven",
+        "repository",
+        "directory",
+        "inside"
+      ]
+    }
+  },
+  {
+    "id": "131fc170-287c-457b-8f6d-601112d8b38a",
+    "chapter": "Central repository",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Central repository\n\nThe central Maven repository is a repository provided by the Maven community. By default Maven looks in this central repository for any dependencies needed but not found in your local repository. Maven then downloads these dependencies into your local repository. You need no special configuration to access the central repository.\n\nRemote repository",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 26,
+      "chunk_length": 370,
+      "prev_keywords": [
+        "local",
+        "maven",
+        "repository",
+        "directory",
+        "inside"
+      ],
+      "keywords": [
+        "repository",
+        "central",
+        "maven",
+        "dependencies",
+        "local"
+      ]
+    }
+  },
+  {
+    "id": "7db81e47-ef4a-4218-bdc4-9a30deef7831",
+    "chapter": "Central repository",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "A remote repository is a repository on a web server from which Maven can download dependencies, just like the central repository. A remote repository can be located anywhere on the internet, or inside a local network.\nA remote repository is often used for hosting projects internal to your organization, which are shared by multiple projects. For instance, a common security project might be used across multiple internal projects. This security project should not be accessible to the outside world, and should thus not be hosted in the public, central Maven repository. Instead it can be hosted in an internal remote repository.\nDependencies found in a remote repository are also downloaded and put into your local repository by Maven.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 27,
+      "chunk_length": 737,
+      "prev_keywords": [
+        "repository",
+        "central",
+        "maven",
+        "dependencies",
+        "local"
+      ],
+      "keywords": [
+        "repository",
+        "remote",
+        "maven",
+        "projects",
+        "internal"
+      ]
+    }
+  },
+  {
+    "id": "4c459c81-8be8-4b85-9ee6-3e44ade8ec39",
+    "chapter": "Central repository",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "You can configure a remote repository in the POM file. Put the following XML elements right after the <dependencies> element:",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 28,
+      "chunk_length": 125,
+      "prev_keywords": [
+        "repository",
+        "remote",
+        "maven",
+        "projects",
+        "internal"
+      ],
+      "keywords": [
+        "configure",
+        "remote",
+        "repository",
+        "pom",
+        "file"
+      ]
+    }
+  },
+  {
+    "id": "6beb8a9b-d365-4943-bfd5-115bccb51e48",
+    "chapter": "Build Plugins",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Build Plugins\n\nBuild plugins are used to insert extra goals into a build phase. If you need to perform a set of actions for your project which are not covered by the standard Maven build phases and goals, you can add a plugin to the POM file. Maven has some standard plugins you can use, and you can also implement your own in Java if you need to.\n\nRunning Maven",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 29,
+      "chunk_length": 362,
+      "prev_keywords": [
+        "configure",
+        "remote",
+        "repository",
+        "pom",
+        "file"
+      ],
+      "keywords": [
+        "build",
+        "plugins",
+        "maven",
+        "goals",
+        "need"
+      ]
+    }
+  },
+  {
+    "id": "733fe89c-d86f-4062-ab6c-d785ddfa127e",
+    "chapter": "mvn install",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Running Maven is done by executing the mvn command from a command prompt. When executing the mvn command you pass the name of a build life cycle, phase or goal to it, which Maven then executes. Here is an example:\nmvn install\nThis command executes the build phase called install (part of the default build life cycle), which builds the project and copies the packaged JAR file into the local Maven repository. Actually, this command executes all build phases before install in the build phase sequence, before executing the install build phase.\nYou can execute multiple build life cycles or phases by passing more than one argument to the mvn command. Here is an example:\nmvn clean install",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 30,
+      "chunk_length": 689,
+      "prev_keywords": [
+        "build",
+        "plugins",
+        "maven",
+        "goals",
+        "need"
+      ],
+      "keywords": [
+        "build",
+        "command",
+        "mvn",
+        "install",
+        "phase"
+      ]
+    }
+  },
+  {
+    "id": "060b166c-38c1-4735-9851-100738f15ca4",
+    "chapter": "mvn clean install",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "mvn clean install\nThis command first executes the clean build life cycle, which removes compiled classes from the Maven output directory, and then it executes the install build phase.\nYou can also execute a Maven goal (a subpart of a build phase) by passing the build phase and goal name concatenated with a : in between, as parameter to the Maven command. Here is an example:\nmvn dependency:copy-dependencies\nThis command executes the copy-dependencies goal of the dependency build phase.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 31,
+      "chunk_length": 489,
+      "prev_keywords": [
+        "build",
+        "command",
+        "mvn",
+        "install",
+        "phase"
+      ],
+      "keywords": [
+        "build",
+        "phase",
+        "command",
+        "executes",
+        "maven"
+      ]
+    }
+  },
+  {
+    "id": "f4bcc79e-4c3d-499f-a7d3-55b5c190dcba",
+    "chapter": "Here are the most important directories",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "Maven has a standard directory structure. If you follow that directory structure for your project, you do not need to specify the directories of your source code, test code etc. in your POM file.\nHere are the most important directories:\nThe src directory is the root directory of your source code and test code.\nThe main directory is the root directory for source code related to the application itself (not test code).\nThe test directory contains the test source code.\nThe java directories under main and test contains the Java code for the application itself (under main) and the Java code for the tests (under test).\nThe resources directory contains other resources needed by your project. This could be property files used for internationalization of an application, or something else.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 33,
+      "chunk_length": 789,
+      "prev_keywords": [
+        "build",
+        "phase",
+        "command",
+        "executes",
+        "maven"
+      ],
+      "keywords": [
+        "code",
+        "directory",
+        "test",
+        "source",
+        "directories"
+      ]
+    }
+  },
+  {
+    "id": "8283dd47-7ed2-4d73-bba8-9257f90a0746",
+    "chapter": "Here are the most important directories",
+    "source": "Maven Basics.docx",
+    "title": "What Is Maven",
+    "doc_type": "notes",
+    "text": "The webapp directory contains your Java web application, if your project is a web application. The webapp directory will then be the root directory of the web application. Thus the webapp directory contains the WEB-INF directory etc.\nThe target directory is created by Maven. It contains all the compiled classes, JAR files etc. produced by Maven. When executing the clean build phase, it is the target directory which is cleaned.",
+    "metadata": {
+      "summary": "",
+      "prev_summary": "",
+      "chunk_index": 34,
+      "chunk_length": 430,
+      "prev_keywords": [
+        "code",
+        "directory",
+        "test",
+        "source",
+        "directories"
+      ],
+      "keywords": [
+        "directory",
+        "webapp",
+        "contains",
+        "web",
+        "application"
+      ]
+    }
+  }
+]
