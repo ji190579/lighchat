@@ -4,6 +4,7 @@ venv/
 
 # Local Data & Training Scripts
 data/
+!data/faq.py
 train_local.py
 documents_util.py
 documents_util_oldl.py
