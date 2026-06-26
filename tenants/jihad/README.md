@@ -13,3 +13,6 @@
 
 
 scp -i "D:\AI\mycareer\AWS\LightsailDefaultKey-eu-west-3.pem" -r "D:\AI\AI engineer projects\chatwithmydata\vector_store\ai-roadmap-notes" ubuntu@51.45.26.105:/home/ubuntu/lighchat/vector_store/
+
+to start both :
+python -m notebooks.start_both_any    
