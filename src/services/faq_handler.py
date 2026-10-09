@@ -7,25 +7,32 @@ import os
 from datetime import datetime
 
 class FAQHandler:
-    def __init__(self):
-        # ✅ Your correct local model path
-        model_name = "sentence-transformers/all-MiniLM-L6-v2"
-        
-        print("Loading sentence transformer model...")
-        try:
-            self.model = SentenceTransformer(model_name)
-            print("✅ Model loaded successfully")
-        except Exception as e:
-            print(f"❌ Error loading model: {e}")
-            raise
+    def __init__(self, faqs=None, model=None):
+        """
+        faqs:  list of {"question", "answer"} — defaults to the global FAQ_DATABASE.
+        model: an already-loaded SentenceTransformer to share between handlers.
+        """
+        if model is not None:
+            self.model = model
+        else:
+            # ✅ Your correct local model path
+            model_name = "sentence-transformers/all-MiniLM-L6-v2"
 
+            print("Loading sentence transformer model...")
+            try:
+                self.model = SentenceTransformer(model_name)
+                print("✅ Model loaded successfully")
+            except Exception as e:
+                print(f"❌ Error loading model: {e}")
+                raise
 
-        import sys
-        import os
-        sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-        from src.data.faq import FAQ_DATABASE
+        if faqs is None:
+            import sys
+            sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
+            from src.data.faq import FAQ_DATABASE
+            faqs = FAQ_DATABASE  # Load FAQs from py file
 
-        self.faqs = FAQ_DATABASE  # Load FAQs from py file
+        self.faqs = faqs
         
            
         

@@ -6,6 +6,7 @@ Builds chains per tenant using prompt_builder + retriever.
 """
 
 import os
+import re
 import json
 from datetime import datetime
 from functools import lru_cache
@@ -25,6 +26,7 @@ from src.utils.chat_utils import (
     is_noise_or_greeting_message,
     random_greeting_response,
     check_faq,
+    get_tenant_faq_handler,
 )
 
 load_dotenv()
@@ -152,6 +154,65 @@ def _serialize_chat_history(chat_history):
 
 
 # ═══════════════════════════════════════════════════════════════
+# FAQ-ONLY MODE — no LLM, answers from tenants/{id}/faq.json
+# ═══════════════════════════════════════════════════════════════
+
+# Below this score the nearest FAQ questions are unrelated, so suggest
+# the tenant's fixed example questions instead.
+FAQ_SUGGESTION_MIN_SCORE = 0.35
+
+
+def _to_second_person(message: str, names: list) -> str:
+    """
+    "Does Jihad know Spring?" -> "Does you know Spring?". The FAQ is written to
+    the person ("you"); left as-is, the name dominates the embedding and every
+    third-person question drifts toward "Where is Jihad from?".
+    """
+    if not names:
+        return message
+    alt = "|".join(re.escape(n) for n in sorted(names, key=len, reverse=True))
+    message = re.sub(rf"\b(?:{alt})['’]s\b", "your", message, flags=re.IGNORECASE)
+    return re.sub(rf"\b(?:{alt})\b", "you", message, flags=re.IGNORECASE)
+
+
+def _faq_only_reply(tenant_id: str, new_message: str, config: dict) -> str:
+    faq_cfg   = config["faq_only"]
+    persona   = config.get("persona", {})
+    greeting  = faq_cfg.get("greeting") or random_greeting_response(persona.get("name", tenant_id))
+    examples  = faq_cfg.get("example_questions", [])
+    fallback  = faq_cfg.get(
+        "fallback_reply",
+        "You can ask me anything about me and my career. For example:"
+    )
+
+    print(f"FAQ_ONLY: '{new_message}' | tenant: {tenant_id}")
+
+    if is_noise_or_greeting_message(new_message):
+        return greeting
+
+    handler = get_tenant_faq_handler(tenant_id)
+    if handler is None:
+        print(f"FAQ_ONLY: tenants/{tenant_id}/faq.json not found")
+        return fallback + "".join(f"\n• {q}" for q in examples)
+
+    query  = _to_second_person(new_message, faq_cfg.get("name_aliases", []))
+    result = handler.find_answer(query, threshold=faq_cfg.get("threshold", 0.6))
+    if result["answer"]:
+        _log_faq_usage(tenant_id, new_message, result["matched_question"], result["score"], result["answer"])
+        return result["answer"]
+
+    if is_greeting_or_compliment(new_message):
+        if any(w in new_message.lower() for w in ("thank", "thx", "appreciate")):
+            return faq_cfg.get("thanks_reply", "You're welcome! Feel free to ask anything else.")
+        return greeting
+
+    # No match: suggest the closest FAQ questions when they're related enough
+    top = [m["question"] for m in result.get("top_3", []) if m["score"] >= FAQ_SUGGESTION_MIN_SCORE]
+    suggestions = top or examples[:3]
+    return fallback + "".join(f"\n• {q}" for q in suggestions)
+
+
+# ═══════════════════════════════════════════════════════════════
 # MAIN CHAT FUNCTION
 # ═══════════════════════════════════════════════════════════════
 
@@ -173,6 +234,17 @@ def chat_with_model(
     Returns:
         (updated_history, cleared_input)
     """
+    # FAQ-only tenants never build or call the LLM chain
+    tenant_config = get_full_tenant_config(tenant_id)
+    if tenant_config["faq_only"].get("enabled"):
+        bot_reply = _faq_only_reply(tenant_id, new_message, tenant_config)
+        history.append((new_message, bot_reply))
+        chat_history.extend([
+            HumanMessage(content=new_message),
+            AIMessage(content=bot_reply)
+        ])
+        return history, ""
+
     question_answer_chain, retriever, config = _build_tenant_chain(tenant_id)
     trimmed_history = compress_chat_history(chat_history, max_turns=5, max_length=300)
 
@@ -293,6 +365,17 @@ def chat_with_model_stream(
     Streaming version — yields tokens as they arrive.
     Use for real-time UI streaming responses.
     """
+    tenant_config = get_full_tenant_config(tenant_id)
+    if tenant_config["faq_only"].get("enabled"):
+        bot_reply = _faq_only_reply(tenant_id, new_message, tenant_config)
+        history.append((new_message, bot_reply))
+        chat_history.extend([
+            HumanMessage(content=new_message),
+            AIMessage(content=bot_reply)
+        ])
+        yield bot_reply
+        return
+
     question_answer_chain, retriever, config = _build_tenant_chain(tenant_id)
     trimmed_history = compress_chat_history(chat_history, max_turns=5, max_length=300)
 

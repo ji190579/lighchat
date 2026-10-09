@@ -29,6 +29,20 @@
     "theme_color": "#1a73e8",
     "position": "bottom-right"
   },
+  "faq_only": {
+    "enabled": true,
+    "threshold": 0.6,
+    "name_aliases": ["Jihad Lamaa", "Jihad", "Lamaa", "Mr. Lamaa", "Mr Lamaa"],
+    "greeting": "Hi! I'm Jihad Lamaa, a Principal Software Engineer with 20 years in banking technology. Ask me anything about me: my experience, trade finance work, microservices, skills or AI projects.",
+    "thanks_reply": "You're welcome! Feel free to ask anything else about me.",
+    "fallback_reply": "I'm Jihad, a software engineer. Ask me anything about me, for example:",
+    "example_questions": [
+      "What is your current role?",
+      "How many years of experience do you have?",
+      "What is your microservices experience?",
+      "What AI projects have you built?"
+    ]
+  },
   "plan": "enterprise",
   "image_processing": "smart"
 }

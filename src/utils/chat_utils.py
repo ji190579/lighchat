@@ -1,5 +1,8 @@
 
 import re
+import json
+from functools import lru_cache
+from pathlib import Path
 
 from langchain_core.messages import HumanMessage, AIMessage
 from src.services.faq_handler import FAQHandler
@@ -9,6 +12,20 @@ from src.core.config import load_config
 config = load_config()
 my_profile_name = config["my_profile_name"]
 faq_handler = FAQHandler()
+
+
+@lru_cache(maxsize=20)
+def get_tenant_faq_handler(tenant_id):
+    """
+    FAQ handler for tenants/{tenant_id}/faq.json, sharing the already-loaded
+    sentence model. Returns None if the tenant has no faq.json.
+    """
+    path = Path("tenants") / tenant_id / "faq.json"
+    if not path.exists():
+        return None
+    with open(path, "r", encoding="utf-8") as f:
+        faqs = json.load(f)
+    return FAQHandler(faqs=faqs, model=faq_handler.model)
 
 GREETING_KEYWORDS = ["hi", "hello", "hey", "good morning", "good evening", "thanks", "thank you", "appreciate"]
 PRICE_KEYWORDS = ["how much", "price", "cost", "fees", "charges"]

@@ -163,6 +163,9 @@ def get_full_tenant_config(tenant_id: str) -> dict:
             "position":    "bottom-right",
         }),
 
+        # FAQ-only mode — answer only from tenants/{id}/faq.json, never call the LLM
+        "faq_only": tenant_cfg.get("faq_only", {"enabled": False}),
+
         # Plan + image processing
         "plan":             tenant_cfg.get("plan", "starter"),
         "image_processing": tenant_cfg.get("image_processing", "ocr"),
